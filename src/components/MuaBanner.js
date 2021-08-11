@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const Rect = styled.div`
   background: #8C3B3BCC;
-  width: 191px;
-  height: 105px;
+  width: 100%;
+  height: 100%;
 `
 const Text = styled.h1`
   font-size: 14px;
@@ -11,6 +11,7 @@ const Text = styled.h1`
   line-height: 18.23px;
   font-weight: 100;
   text-align: left;
+  margin: 0;
 `
 const Wrapper = styled.div`
   position: relative;
