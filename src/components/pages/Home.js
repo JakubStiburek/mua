@@ -2,10 +2,10 @@ import './Home.css';
 import Logo from "../Logo";
 import MuaBanner from "../MuaBanner";
 import MenuBanner from "../MenuBanner";
+import Burger from "../Burger";
 
 const Home = () => {
   return (
-    <div className="App">
       <div className="layout">
         <div className="logo">
           <Logo>SOLOMIJA STIBŮRKOVÁ</Logo>
@@ -16,10 +16,9 @@ const Home = () => {
         <div className="menu-banner">
           <MenuBanner/>
         </div>
-        <div className="burger">burger</div>
+        <div className="burger"><Burger/></div>
         <div className="gallery">gallery</div>
         <div className="reservation">reservation</div>
-      </div>
     </div>
   )
 };

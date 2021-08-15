@@ -7,6 +7,7 @@ const Rect = styled.div`
   border-radius: 25px 25px 0px 0px ;
 `
 const Text = styled.h1`
+  text-align: center;
   font-size: 48px;
   color: #FFF4F5;
   font-family: 'Archivo', sans-serif;
