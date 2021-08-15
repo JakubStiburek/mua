@@ -23,7 +23,25 @@ const Text = styled.h1`
   margin: unset;
 `
 
-const textVersions = ["Make-up na svatbu", "Make-up na focení", "Denní make-up"];
+const Highlited = styled(Text)`
+  color: #CFCA35;
+`
+
+const textVersions = [
+  <div>
+    <Highlited>na svatbu</Highlited>
+    <Text>Make-up&nbsp;</Text>
+  </div>,
+  <div>
+    <Highlited>na focení</Highlited>
+    <Text>Make-up&nbsp;</Text>
+  </div>,
+  <div>
+    <Text>make-up</Text>
+    <Highlited>Denní&nbsp;</Highlited>
+  </div>
+];
+
 
 const MenuBanner = () => {
   const [textVersion, setTextVersion] = useState(0);
@@ -38,7 +56,7 @@ const MenuBanner = () => {
 
   return (
     <Rect>
-      <Text>{textVersions[textVersion]}</Text>
+      {textVersions[textVersion]}
     </Rect>
   )
 };
