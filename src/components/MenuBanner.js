@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {useEffect, useState} from "react";
 
 const Rect = styled.div`
   background: #8C3B3BCC;
@@ -7,8 +8,8 @@ const Rect = styled.div`
 `
 const Text = styled.h1`
   position: relative;
-  top: 105px;
-  left: 41.33px;
+  top: 110px;
+  left: 38%;
   font-size: 36px;
   color: #FFF4F5;
   line-height: 18.23px;
@@ -22,10 +23,22 @@ const Text = styled.h1`
   margin: unset;
 `
 
+const textVersions = ["Make-up na svatbu", "Make-up na focení", "Denní make-up"];
+
 const MenuBanner = () => {
+  const [textVersion, setTextVersion] = useState(0);
+
+  const setText = () => {
+    setTimeout(() => { setTextVersion(1) }, 3000);
+    setTimeout(() => { setTextVersion(2) }, 6000);
+    setTimeout(() => { setTextVersion(0) }, 9000);
+  }
+
+  useEffect(() => { setText() }, [])
+
   return (
     <Rect>
-      <Text>Make-up na svatbu</Text>
+      <Text>{textVersions[textVersion]}</Text>
     </Rect>
   )
 };
