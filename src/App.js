@@ -11,16 +11,16 @@ function App() {
   return (
     <Router>
       <Switch>
-        {/*<Route path="/contacts">*/}
+        {/*<Route path="/kontakt">*/}
         {/*  <Contacts/>*/}
         {/*</Route>*/}
-        {/*<Route path="/gallery">*/}
+        {/*<Route path="/galerie">*/}
         {/*  <Gallery/>*/}
         {/*</Route>*/}
-        {/*<Route path="/reservation">*/}
+        {/*<Route path="/rezervace">*/}
         {/*  <Reservation/>*/}
         {/*</Route>*/}
-        {/*<Route path="/services">*/}
+        {/*<Route path="/sluzby">*/}
         {/*  <Services/>*/}
         {/*</Route>*/}
         {/*<Route path="/about">*/}

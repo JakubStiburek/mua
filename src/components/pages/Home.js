@@ -3,6 +3,7 @@ import Logo from "../Logo";
 import MuaBanner from "../MuaBanner";
 import MenuBanner from "../MenuBanner";
 import Burger from "../Burger";
+import Menu from "../Menu";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <div className="menu-banner">
           <MenuBanner/>
         </div>
+        <Menu/>
         <div className="burger"><Burger/></div>
         <div className="gallery">gallery</div>
         <div className="reservation">reservation</div>
