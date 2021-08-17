@@ -4,8 +4,15 @@ import MuaBanner from "../MuaBanner";
 import MenuBanner from "../MenuBanner";
 import Burger from "../Burger";
 import Menu from "../Menu";
+import {useState} from "react";
 
 const Home = () => {
+  const [burgerState, setBurgerState] = useState(false)
+
+  const toggleBurger = () => {
+    burgerState ? setBurgerState(false) : setBurgerState(true);
+  }
+
   return (
       <div className="layout">
         <div className="logo">
@@ -18,7 +25,9 @@ const Home = () => {
           <MenuBanner/>
         </div>
         {/*<Menu/>*/}
-        <div className="burger"><Burger/></div>
+        <div className="burger" onClick={toggleBurger}>
+          <Burger open={burgerState}/>
+        </div>
         <div className="gallery">gallery</div>
         <div className="reservation">reservation</div>
     </div>

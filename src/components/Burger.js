@@ -13,16 +13,25 @@ const EmptyLine = styled.div`
   border-bottom: 5px solid ${({ theme }) => theme.miaRed};
 `
 
-const Burger = () => {
-  return (
-    <Wrapper>
-      <Line/>
-      <EmptyLine/>
-      <Line/>
-      <EmptyLine/>
-      <Line/>
-    </Wrapper>
-  )
+const Burger = (props) => {
+  if(!props.open){
+    return (
+      <Wrapper>
+        <Line/>
+        <EmptyLine/>
+        <Line/>
+        <EmptyLine/>
+        <Line/>
+      </Wrapper>
+    )
+  } else {
+    return (
+      <Wrapper>
+        <Line/>
+      </Wrapper>
+    )
+  }
+
 };
 
 export default Burger;
