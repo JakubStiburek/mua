@@ -24,7 +24,7 @@ const Home = () => {
         <div className="menu-banner">
           <MenuBanner/>
         </div>
-        {/*<Menu/>*/}
+        {burgerState ? <Menu/> : null}
         <div className="burger" onClick={toggleBurger}>
           <Burger open={burgerState}/>
         </div>
