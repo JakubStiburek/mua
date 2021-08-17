@@ -33,7 +33,7 @@ const BurgerWrapper = styled.div`
   grid-area: 2 / 3 / 3 / 4;
 `
 
-const Contacts = () => {
+const About = () => {
   const [burgerState, setBurgerState] = useState(false)
 
   const toggleBurger = () => {
@@ -54,9 +54,9 @@ const Contacts = () => {
       <BurgerWrapper onClick={toggleBurger}>
         <Burger open={burgerState}/>
       </BurgerWrapper>
-      CONTACTS
+      ABOUT
     </Layout>
   )
 };
 
-export default Contacts;
+export default About;

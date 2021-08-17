@@ -5,6 +5,7 @@ import Burger from "../Burger";
 import Menu from "../Menu";
 import {useState} from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Layout = styled.div`
   margin: auto;
@@ -13,6 +14,11 @@ const Layout = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 105px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 5px;
+`
+
+const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.miaWhite};
+  text-decoration: none;
 `
 
 const LogoWrapper = styled.div`
@@ -50,7 +56,9 @@ const Home = () => {
   return (
     <Layout>
       <LogoWrapper>
-        <Logo>SOLOMIJA STIBŮRKOVÁ</Logo>
+        <StyledLink to="/">
+          <Logo>SOLOMIJA STIBŮRKOVÁ</Logo>
+        </StyledLink>
       </LogoWrapper>
       <BannerWrapper>
         <MuaBanner>Profesionální vizážistka & make-up artist</MuaBanner>
