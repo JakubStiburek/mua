@@ -1,10 +1,31 @@
-import './Contacts.css';
 import Logo from "../Logo";
 import MuaBanner from "../MuaBanner";
-import MenuBanner from "../MenuBanner";
 import Burger from "../Burger";
 import Menu from "../Menu";
 import {useState} from "react";
+import styled from "styled-components";
+
+const Layout = styled.div`
+  margin: auto;
+  width: 312px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 105px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
+`
+
+const LogoWrapper = styled.div`
+  grid-area: 1 / 1 / 2 / 4;
+`
+
+const BannerWrapper = styled.div`
+  grid-area: 2 / 1 / 3 / 3;
+`
+
+const BurgerWrapper = styled.div`
+  background: ${({ theme }) => theme.miaRed};
+  grid-area: 2 / 3 / 3 / 4;
+`
 
 const Contacts = () => {
   const [burgerState, setBurgerState] = useState(false)
@@ -14,18 +35,18 @@ const Contacts = () => {
   }
 
   return (
-    <div className="layout">
-      <div className="logo">
+    <Layout>
+      <LogoWrapper>
         <Logo>SOLOMIJA STIBŮRKOVÁ</Logo>
-      </div>
-      <div className="banner">
+      </LogoWrapper>
+      <BannerWrapper>
         <MuaBanner>Profesionální vizážistka & make-up artist</MuaBanner>
-      </div>
+      </BannerWrapper>
       {burgerState ? <Menu/> : null}
-      <div className="burger" onClick={toggleBurger}>
+      <BurgerWrapper onClick={toggleBurger}>
         <Burger open={burgerState}/>
-      </div>
-    </div>
+      </BurgerWrapper>
+    </Layout>
   )
 };
 
