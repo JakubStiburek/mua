@@ -1,19 +1,19 @@
 import styled from "styled-components";
 import {useEffect, useState} from "react";
+import {StyledHeading} from "./StyledHeading";
 
 const Rect = styled.div`
   background: ${({ theme }) => theme.miaRed};
   width: 100%;
   height: 526px;
 `
-const Text = styled.h1`
+const BannerText = styled(StyledHeading)`
   position: relative;
   top: 110px;
   left: 38%;
   font-size: 36px;
-  color: ${({ theme }) => theme.miaWhite};
   line-height: 18.23px;
-  font-weight: 100;
+  letter-spacing: 2px;
   writing-mode: vertical-lr;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -23,21 +23,21 @@ const Text = styled.h1`
   margin: unset;
 `
 
-const Highlited = styled(Text)`
+const Highlited = styled(BannerText)`
   color: ${({ theme }) => theme.miaYellow};
 `
 
 const textVersions = [
   <div>
     <Highlited>na svatbu</Highlited>
-    <Text>Make-up&nbsp;</Text>
+    <BannerText>Make-up&nbsp;</BannerText>
   </div>,
   <div>
     <Highlited>na focení</Highlited>
-    <Text>Make-up&nbsp;</Text>
+    <BannerText>Make-up&nbsp;</BannerText>
   </div>,
   <div>
-    <Text>make-up</Text>
+    <BannerText>make-up</BannerText>
     <Highlited>Denní&nbsp;</Highlited>
   </div>
 ];

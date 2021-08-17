@@ -3,9 +3,9 @@ import MuaBanner from "../MuaBanner";
 import MenuBanner from "../MenuBanner";
 import Burger from "../Burger";
 import Menu from "../Menu";
-import {useState} from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { StyledLink } from "../StyledLink";
 
 const Layout = styled.div`
   margin: auto;
@@ -14,11 +14,6 @@ const Layout = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 105px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 5px;
-`
-
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.miaWhite};
-  text-decoration: none;
 `
 
 const LogoWrapper = styled.div`
@@ -30,8 +25,8 @@ const BannerWrapper = styled.div`
 `
 
 const BurgerWrapper = styled.div`
-  background: ${({ theme }) => theme.miaRed};
   grid-area: 2 / 3 / 3 / 4;
+  background: ${({ theme }) => theme.miaRed};
 `
 
 const MenuBannerWrapper = styled.div`

@@ -1,15 +1,15 @@
 import styled from "styled-components";
+import {StyledHeading} from "./StyledHeading";
 
 const Rect = styled.div`
   background: ${({ theme }) => theme.miaRed};
   width: 100%;
   height: 100%;
 `
-const Text = styled.h1`
+const BannerText = styled(StyledHeading)`
+  font-family: "DM Sans", sans-serif;
   font-size: 14px;
-  color: ${({ theme }) => theme.miaWhite};
   line-height: 18.23px;
-  font-weight: 100;
   text-align: left;
   margin: 0;
 `
@@ -24,7 +24,7 @@ const MuaBanner = (props) => {
   return (
     <Rect>
       <Wrapper>
-        <Text>{props.children}</Text>
+        <BannerText>{props.children}</BannerText>
       </Wrapper>
     </Rect>
   )

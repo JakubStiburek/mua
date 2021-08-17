@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import {StyledLink} from "./StyledLink";
 
-const Wrapper = styled.ul`
+const MenuList = styled.ul`
   text-align: center;
   background: ${({ theme }) => theme.miaRed};
   position: absolute;
@@ -17,20 +17,18 @@ const Wrapper = styled.ul`
   border-top: 5px solid ${({ theme }) => theme.miaWhite};
 `
 
-const StyledLink = styled(Link)`
+const MenuStyledLink = styled(StyledLink)`
   font-size: 24px;
   line-height: 32px;
-  color: ${({ theme }) => theme.miaWhite};
-  text-decoration: none;
 `
 
 const links = [
-  <StyledLink to="/about">O mně</StyledLink>,
-  <StyledLink to="/sluzby">Služby & ceník</StyledLink>,
-  <StyledLink to="/rezervace">Rezervace</StyledLink>,
-  <StyledLink to="/galerie">Galerie</StyledLink>,
-  <StyledLink to="/kontakt">Kontakt</StyledLink>,
-  <StyledLink to="/">Home</StyledLink>
+  <MenuStyledLink to="/about">O mně</MenuStyledLink>,
+  <MenuStyledLink to="/sluzby">Služby & ceník</MenuStyledLink>,
+  <MenuStyledLink to="/rezervace">Rezervace</MenuStyledLink>,
+  <MenuStyledLink to="/galerie">Galerie</MenuStyledLink>,
+  <MenuStyledLink to="/kontakt">Kontakt</MenuStyledLink>,
+  <MenuStyledLink to="/">Home</MenuStyledLink>
 ]
 
 const listLinks = (links) => {
@@ -40,9 +38,9 @@ const listLinks = (links) => {
 }
 const Menu = () => {
   return (
-    <Wrapper>
+    <MenuList>
       {listLinks(links)}
-    </Wrapper>
+    </MenuList>
   )
 };
 

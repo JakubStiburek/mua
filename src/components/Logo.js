@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {StyledHeading} from "./StyledHeading";
 
 const Rect = styled.div`
   margin-top: 31.516px;
@@ -6,20 +7,15 @@ const Rect = styled.div`
   width: 312px;
   border-radius: 25px 25px 0px 0px ;
 `
-const Text = styled.h1`
-  text-align: center;
+const Title = styled(StyledHeading)`
   font-size: 48px;
-  color: ${({ theme }) => theme.miaWhite};
-  font-family: 'Archivo', sans-serif;
   line-height: 52.22px;
-  font-weight: 100;
-  margin: 0;
 `
 
 const Logo = (props) => {
   return (
     <Rect>
-      <Text>{props.children}</Text>
+      <Title>{props.children}</Title>
     </Rect>
   )
 };
