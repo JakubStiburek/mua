@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {useEffect, useState} from "react";
 
 const Rect = styled.div`
-  background: #8C3B3BCC;
+  background: ${({ theme }) => theme.miaRed};
   width: 100%;
   height: 526px;
 `
@@ -11,7 +11,7 @@ const Text = styled.h1`
   top: 110px;
   left: 38%;
   font-size: 36px;
-  color: #FFF4F5;
+  color: ${({ theme }) => theme.miaWhite};
   line-height: 18.23px;
   font-weight: 100;
   writing-mode: vertical-lr;
@@ -24,7 +24,7 @@ const Text = styled.h1`
 `
 
 const Highlited = styled(Text)`
-  color: #CFCA35;
+  color: ${({ theme }) => theme.miaYellow};
 `
 
 const textVersions = [

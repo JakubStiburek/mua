@@ -6,11 +6,11 @@ const Wrapper = styled.div`
 `
 
 const Line = styled.div`
-  border-bottom: 5px solid rgba(207, 202, 53, 0.9);
+  border-bottom: 5px solid ${({ theme }) => theme.miaYellow}
 `
 
 const EmptyLine = styled.div`
-  border-bottom: 5px solid rgba(159,159,159,0);
+  border-bottom: 5px solid ${({ theme }) => theme.miaRed};
 `
 
 const Burger = () => {

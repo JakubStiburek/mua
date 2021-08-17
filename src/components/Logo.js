@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 const Rect = styled.div`
   margin-top: 31.516px;
-  background: #8C3B3BCC;
+  background: ${({ theme }) => theme.miaRed};
   width: 312px;
   border-radius: 25px 25px 0px 0px ;
 `
 const Text = styled.h1`
   text-align: center;
   font-size: 48px;
-  color: #FFF4F5;
+  color: ${({ theme }) => theme.miaWhite};
   font-family: 'Archivo', sans-serif;
   line-height: 52.22px;
   font-weight: 100;

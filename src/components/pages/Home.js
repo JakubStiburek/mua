@@ -17,7 +17,7 @@ const Home = () => {
         <div className="menu-banner">
           <MenuBanner/>
         </div>
-        <Menu/>
+        {/*<Menu/>*/}
         <div className="burger"><Burger/></div>
         <div className="gallery">gallery</div>
         <div className="reservation">reservation</div>

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 const Rect = styled.div`
-  background: #8C3B3BCC;
+  background: ${({ theme }) => theme.miaRed};
   width: 100%;
   height: 100%;
 `
 const Text = styled.h1`
   font-size: 14px;
-  color: #FFF4F5;
+  color: ${({ theme }) => theme.miaWhite};
   line-height: 18.23px;
   font-weight: 100;
   text-align: left;

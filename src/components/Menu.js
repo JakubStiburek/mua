@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Wrapper = styled.ul`
   text-align: center;
-  background: rgba(140, 59, 59, 0.95);
+  background: ${({ theme }) => theme.miaRed};
   position: absolute;
   list-style: none;
   width: 312px;
@@ -14,13 +14,13 @@ const Wrapper = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-top: 5px solid #FFF4F5;
+  border-top: 5px solid ${({ theme }) => theme.miaWhite};
 `
 
 const StyledLink = styled(Link)`
   font-size: 24px;
   line-height: 32px;
-  color: #FFF4F5;
+  color: ${({ theme }) => theme.miaWhite};
   text-decoration: none;
 `
 
