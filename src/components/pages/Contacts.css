@@ -1,0 +1,14 @@
+.layout {
+  margin: auto;
+  width: 312px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 105px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 5px;
+}
+.logo { grid-area: 1 / 1 / 2 / 4; }
+.banner { grid-area: 2 / 1 / 3 / 3; }
+.burger {
+  background: #8C3B3B;
+  grid-area: 2 / 3 / 3 / 4;
+}

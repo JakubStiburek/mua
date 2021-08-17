@@ -7,15 +7,16 @@ import {
   Link
 } from "react-router-dom";
 import Home from "./components/pages/Home";
+import Contacts from "./components/pages/Contacts";
 
 function App() {
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <Switch>
-          {/*<Route path="/kontakt">*/}
-          {/*  <Contacts/>*/}
-          {/*</Route>*/}
+          <Route path="/kontakt">
+            <Contacts/>
+          </Route>
           {/*<Route path="/galerie">*/}
           {/*  <Gallery/>*/}
           {/*</Route>*/}
