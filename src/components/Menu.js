@@ -1,5 +1,14 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {StyledLink} from "./StyledLink";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+`
 
 const MenuList = styled.ul`
   text-align: center;
@@ -15,6 +24,7 @@ const MenuList = styled.ul`
   flex-direction: column;
   justify-content: space-around;
   border-top: 5px solid ${({ theme }) => theme.miaWhite};
+  animation: ${fadeIn} 0.3s;
 `
 
 const MenuStyledLink = styled(StyledLink)`

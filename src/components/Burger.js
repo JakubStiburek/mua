@@ -15,8 +15,8 @@ const IconOpen = styled(Icon)`
   fill: ${({ theme }) => theme.miaWhite};
 `
 
-const Burger = (props) => {
-  if(!props.open){
+const Burger = ({ open }) => {
+  if(!open){
     return (
       <Wrapper>
         <Icon xmlns="http://www.w3.org/2000/svg" className="bi bi-list" viewBox="0 0 16 16">
