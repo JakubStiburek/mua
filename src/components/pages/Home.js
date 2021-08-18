@@ -61,7 +61,7 @@ const Home = () => {
       <MenuBannerWrapper>
         <MenuBanner/>
       </MenuBannerWrapper>
-      {burgerState ? <Menu/> : null}
+      {burgerState && <Menu/>}
       <BurgerWrapper onClick={toggleBurger}>
         <Burger open={burgerState}/>
       </BurgerWrapper>
