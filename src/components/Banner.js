@@ -4,22 +4,17 @@ import {StyledHeading} from "./StyledHeading";
 const Rect = styled.div`
   background: ${({ theme }) => theme.miaRed};
   width: 100%;
-  height: 526px;
+  height: 100%;
 `
 const BannerText = styled(StyledHeading)`
   position: relative;
-  top: 110px;
-  left: 38%;
+  top: 1em;
   font-size: 36px;
   line-height: 18.23px;
   letter-spacing: 2px;
   writing-mode: vertical-lr;
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
   transform: rotate(180deg);
-  margin: unset;
+  margin: auto;
 `
 
 const switchHighlighted = keyframes`
@@ -45,7 +40,7 @@ const Highlighted = styled(BannerText)`
   }
 `
 
-const MenuBanner = () => {
+const Banner = () => {
 
   return (
     <Rect>
@@ -57,4 +52,4 @@ const MenuBanner = () => {
   )
 };
 
-export default MenuBanner;
+export default Banner;

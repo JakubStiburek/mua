@@ -11,6 +11,7 @@ const fadeIn = keyframes`
 `
 
 const MenuList = styled.ul`
+  z-index: 1;
   text-align: center;
   background: ${({ theme }) => theme.miaRed};
   position: absolute;

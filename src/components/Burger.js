@@ -9,10 +9,16 @@ const Icon = styled.svg`
   width: 60px;
   height: 60px;
   fill: ${({ theme }) => theme.miaYellow};
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const IconOpen = styled(Icon)`
   fill: ${({ theme }) => theme.miaWhite};
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const Burger = ({ open }) => {
