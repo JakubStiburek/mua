@@ -19,13 +19,12 @@ const FooterWrapper = styled.div`
   grid-area: 6 / 1 / 6 / 3;
 `
 
-const Contacts = () => {
+const _template = () => {
   return (
     <Layout>
       <HeaderWrapper>
         <Header/>
       </HeaderWrapper>
-      Contacts
       <FooterWrapper>
         <Footer/>
       </FooterWrapper>
@@ -33,4 +32,4 @@ const Contacts = () => {
   )
 };
 
-export default Contacts;
+export default _template;
