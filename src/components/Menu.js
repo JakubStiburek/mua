@@ -1,23 +1,15 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import {StyledLink} from "./StyledLink";
+import {useSpring, animated} from "react-spring";
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 100%;
-  }
-`
-
-const MenuList = styled.ul`
+const AnimatedMenuList = styled(animated.ul)`
   z-index: 1;
   text-align: center;
   background: ${({ theme }) => theme.miaRed};
   position: absolute;
   list-style: none;
   width: 312px;
-  height: 416px;
+  height: 417px;
   padding: unset;
   margin: unset;
   top: 245px;
@@ -25,7 +17,6 @@ const MenuList = styled.ul`
   flex-direction: column;
   justify-content: space-around;
   border-top: 5px solid ${({ theme }) => theme.miaWhite};
-  animation: ${fadeIn} 0.3s;
 `
 
 const MenuStyledLink = styled(StyledLink)`
@@ -48,10 +39,11 @@ const listLinks = (links) => {
   })
 }
 const Menu = () => {
+  const animationProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0}})
   return (
-    <MenuList>
-      {listLinks(links)}
-    </MenuList>
+    <AnimatedMenuList style={animationProps}>
+        {listLinks(links)}
+    </AnimatedMenuList>
   )
 };
 
