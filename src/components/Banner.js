@@ -1,5 +1,6 @@
-import styled, {keyframes} from "styled-components";
+import styled from "styled-components";
 import {StyledHeading} from "./StyledHeading";
+import {useEffect, useState} from "react";
 
 const Rect = styled.div`
   background: ${({ theme }) => theme.miaRed};
@@ -17,36 +18,31 @@ const BannerText = styled(StyledHeading)`
   margin: auto;
 `
 
-const switchHighlighted = keyframes`
-  25% {
-    content: "Svatební\\00a0";
-  }
-  50% {
-    content: 'Denní\\00a0';
-  }
-  75% {
-    content: 'Večerní\\00a0';
-  }
-  100% {
-    content: 'Foto\\00a0';
-  }
-`
-
 const Highlighted = styled(BannerText)`
   color: ${({ theme }) => theme.miaYellow};
-  &:before {
-    content: 'Svatební\\00a0';
-    animation: ${switchHighlighted} infinite 10s;
-  }
 `
 
+const items = [
+  "Svatební",
+  "Denní",
+  "Večerní",
+  "Foto"
+]
 const Banner = () => {
+  const [version, setVersion] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setVersion(version === items.length - 1 ? 0 : version + 1);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [version]);
 
   return (
     <Rect>
       <div>
         <BannerText>make-up</BannerText>
-        <Highlighted></Highlighted>
+        <Highlighted>{items[version]} &nbsp;</Highlighted>
       </div>
     </Rect>
   )
