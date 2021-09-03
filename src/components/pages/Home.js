@@ -2,6 +2,7 @@ import Banner from "../Banner";
 import styled from "styled-components";
 import Header from "../Header";
 import Footer from "../Footer";
+import HomeGallety from "../HomeGallery";
 
 const Layout = styled.div`
   margin: auto;
@@ -21,7 +22,7 @@ const ServiceBanner = styled.div`
 `
 
 const GalleryWrapper = styled.div`
-  grid-area: 3 / 1 / 7 / 3;
+  grid-area: 3 / 1 / 6 / 3;
 `
 
 const FooterWrapper = styled.div`
@@ -39,7 +40,7 @@ const Home = () => {
         <Banner/>
       </ServiceBanner>
       <GalleryWrapper>
-        <div className="gallery">gallery</div>
+        <HomeGallety/>
       </GalleryWrapper>
       <FooterWrapper>
         <Footer/>
