@@ -22,6 +22,9 @@ const AnimatedMenuList = styled(animated.ul)`
 const MenuStyledLink = styled(StyledLink)`
   font-size: 24px;
   line-height: 32px;
+  &:hover {
+    color: ${({ theme }) => theme.miaYellow};
+  }
 `
 
 const links = [
