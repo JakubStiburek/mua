@@ -1,20 +1,15 @@
-import mua2 from '../media/mua2.jpg';
-import mua3 from '../media/mua3.jpg';
+import cover from '../media/homeGallery.jpg';
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  place-items: center;
 `
 
 const HomeGallery = () => {
   return (
     <Wrapper>
-      <img src={mua2} alt='Woman wearing maku up' width="206.33" height="104.5"/>
-      <img src={mua3} alt='Woman wearing maku up' width="206.33" height="104.5"/>
-      <img src={mua2} alt='Woman wearing maku up' width="206.33" height="104.5"/>
-      <img src={mua3} alt='Woman wearing maku up' width="206.33" height="104.5"/>
+      <img src={cover} alt='Woman wearing make-up' width="206.33" height="418"/>
     </Wrapper>
   )
 };
