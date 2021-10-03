@@ -5,6 +5,7 @@ import Burger from "./Burger";
 import Menu from "./Menu";
 import styled from "styled-components";
 import {useState} from "react";
+import header from "../localization/header";
 
 const Layout = styled.div`
   margin: auto;
@@ -30,6 +31,7 @@ const BurgerWrapper = styled.div`
 
 const Header = () => {
   const [burgerState, setBurgerState] = useState(false)
+  const { logo, muaBanner } = header;
 
   const toggleBurger = () => {
     burgerState ? setBurgerState(false) : setBurgerState(true);
@@ -39,11 +41,11 @@ const Header = () => {
   <Layout>
     <LogoWrapper>
       <StyledLink to="/">
-        <Logo>SOLOMIJA STIBŮRKOVÁ</Logo>
+        <Logo>{logo}</Logo>
       </StyledLink>
     </LogoWrapper>
     <BannerWrapper>
-      <MuaBanner>Profesionální vizážistka & make-up artist</MuaBanner>
+      <MuaBanner>{muaBanner}</MuaBanner>
     </BannerWrapper>
     <BurgerWrapper onClick={toggleBurger}>
       <Burger open={burgerState}/>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {StyledHeading} from "./StyledHeading";
 import {useEffect, useState} from "react";
+import banner from "../localization/banner";
 
 const Rect = styled.div`
   background: ${({ theme }) => theme.miaRed};
@@ -22,14 +23,9 @@ const Highlighted = styled(BannerText)`
   color: ${({ theme }) => theme.miaYellow};
 `
 
-const items = [
-  "Svatební",
-  "Denní",
-  "Večerní",
-  "Foto"
-]
 const Banner = () => {
   const [version, setVersion] = useState(0);
+  const { makeUp, items } = banner;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,7 +37,7 @@ const Banner = () => {
   return (
     <Rect>
       <div>
-        <BannerText>make-up</BannerText>
+        <BannerText>{ makeUp }</BannerText>
         <Highlighted>{items[version]} &nbsp;</Highlighted>
       </div>
     </Rect>

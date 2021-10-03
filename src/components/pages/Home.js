@@ -2,7 +2,7 @@ import Banner from "../Banner";
 import styled from "styled-components";
 import Header from "../Header";
 import Footer from "../Footer";
-import HomeGallety from "../HomeGallery";
+import HomeGallery from "../HomeGallery";
 
 const Layout = styled.div`
   margin: auto;
@@ -40,7 +40,7 @@ const Home = () => {
         <Banner/>
       </ServiceBanner>
       <GalleryWrapper>
-        <HomeGallety/>
+        <HomeGallery/>
       </GalleryWrapper>
       <FooterWrapper>
         <Footer/>

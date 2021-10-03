@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {StyledLink} from "./StyledLink";
 import {useSpring, animated} from "react-spring";
+import menu from "../localization/menu";
 
 const AnimatedMenuList = styled(animated.ul)`
   z-index: 1;
@@ -27,13 +28,15 @@ const MenuStyledLink = styled(StyledLink)`
   }
 `
 
+const { about, services, reservation, gallery, contacts, home } = menu;
+
 const links = [
-  <MenuStyledLink to="/about">O mně</MenuStyledLink>,
-  <MenuStyledLink to="/sluzby">Služby & ceník</MenuStyledLink>,
-  <MenuStyledLink to="/rezervace">Rezervace</MenuStyledLink>,
-  <MenuStyledLink to="/galerie">Galerie</MenuStyledLink>,
-  <MenuStyledLink to="/kontakt">Kontakt</MenuStyledLink>,
-  <MenuStyledLink to="/">Home</MenuStyledLink>
+  <MenuStyledLink to="/about">{about}</MenuStyledLink>,
+  <MenuStyledLink to="/sluzby">{services}</MenuStyledLink>,
+  <MenuStyledLink to="/rezervace">{reservation}</MenuStyledLink>,
+  <MenuStyledLink to="/galerie">{gallery}</MenuStyledLink>,
+  <MenuStyledLink to="/kontakt">{contacts}</MenuStyledLink>,
+  <MenuStyledLink to="/">{home}</MenuStyledLink>
 ]
 
 const listLinks = (links) => {

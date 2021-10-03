@@ -1,6 +1,6 @@
 import RoutedApp from './RoutedApp'
 import store from "./store";
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 
 function App() {
   return (
