@@ -32,7 +32,7 @@ const Banner = () => {
       setVersion(version === items.length - 1 ? 0 : version + 1);
     }, 1500);
     return () => clearInterval(interval);
-  }, [version]);
+  }, [version, items.length]);
 
   return (
     <Rect>
