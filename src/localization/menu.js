@@ -1,9 +1,9 @@
 const menu = {
   about: "O mně",
-  services: "Služby & ceník",
-  reservation: "Rezervace",
-  gallery: "Galerie",
-  contacts:"Kontakt",
+  sluzby: "Služby & ceník",
+  rezervace: "Rezervace",
+  galerie: "Galerie",
+  kontakt:"Kontakt",
   home: "Domů"
 }
 

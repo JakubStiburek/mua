@@ -2,11 +2,12 @@ import styled from "styled-components";
 import {StyledLink} from "./StyledLink";
 import {useSpring, animated} from "react-spring";
 import menu from "../localization/menu";
+import {useLocation} from "react-router-dom";
 
 const AnimatedMenuList = styled(animated.ul)`
   z-index: 1;
   text-align: center;
-  background: ${({ theme }) => theme.miaRed};
+  background: ${({theme}) => theme.miaRed};
   position: absolute;
   list-style: none;
   width: 312px;
@@ -17,38 +18,55 @@ const AnimatedMenuList = styled(animated.ul)`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-top: 5px solid ${({ theme }) => theme.miaWhite};
+  border-top: 5px solid ${({theme}) => theme.miaWhite};
 `
 
 const MenuStyledLink = styled(StyledLink)`
   font-size: 24px;
   line-height: 32px;
+
   &:hover {
-    color: ${({ theme }) => theme.miaYellow};
+    color: ${({theme}) => theme.miaYellow};
   }
 `
 
-const { about, services, reservation, gallery, contacts, home } = menu;
+const links = ["/about", "/sluzby", "/rezervace", "/galerie", "/kontakt", "/"]
 
-const links = [
-  <MenuStyledLink to="/about">{about}</MenuStyledLink>,
-  <MenuStyledLink to="/sluzby">{services}</MenuStyledLink>,
-  <MenuStyledLink to="/rezervace">{reservation}</MenuStyledLink>,
-  <MenuStyledLink to="/galerie">{gallery}</MenuStyledLink>,
-  <MenuStyledLink to="/kontakt">{contacts}</MenuStyledLink>,
-  <MenuStyledLink to="/">{home}</MenuStyledLink>
-]
+  const listLinks = (links) => {
+    return links.map((link, key) => {
+      return <li key={key}>{link}</li>;
+    })
+  }
 
-const listLinks = (links) => {
-  return links.map((link, key) => {
-    return <li key={key}>{link}</li>;
-  })
-}
 const Menu = () => {
-  const animationProps = useSpring({ to: { opacity: 1 }, from: { opacity: 0}})
+  const location = useLocation().pathname;
+
+  let currentLinks = links.map(link => {
+    if (link !== location) {
+      return link;
+    } else {
+      return undefined;
+    }
+  })
+
+  currentLinks = currentLinks.filter(link => link !== undefined)
+
+  console.log(currentLinks[0].slice(1))
+
+  currentLinks = currentLinks.map(link => {
+    if(link === "/") {
+      return <MenuStyledLink to={link}>{menu.home}</MenuStyledLink>
+    } else {
+      return <MenuStyledLink to={link}>{menu[link.slice(1)]}</MenuStyledLink>
+    }
+  })
+
+  console.log(currentLinks)
+
+  const animationProps = useSpring({to: {opacity: 1}, from: {opacity: 0}})
   return (
     <AnimatedMenuList style={animationProps}>
-        {listLinks(links)}
+      {listLinks(currentLinks)}
     </AnimatedMenuList>
   )
 };
