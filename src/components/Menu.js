@@ -11,7 +11,7 @@ const AnimatedMenuList = styled(animated.ul)`
   position: absolute;
   list-style: none;
   width: 312px;
-  height: 417px;
+  height: 420px;
   padding: unset;
   margin: unset;
   top: 245px;
@@ -51,8 +51,6 @@ const Menu = () => {
 
   currentLinks = currentLinks.filter(link => link !== undefined)
 
-  console.log(currentLinks[0].slice(1))
-
   currentLinks = currentLinks.map(link => {
     if(link === "/") {
       return <MenuStyledLink to={link}>{menu.home}</MenuStyledLink>
@@ -60,8 +58,6 @@ const Menu = () => {
       return <MenuStyledLink to={link}>{menu[link.slice(1)]}</MenuStyledLink>
     }
   })
-
-  console.log(currentLinks)
 
   const animationProps = useSpring({to: {opacity: 1}, from: {opacity: 0}})
   return (

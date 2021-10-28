@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledSubHeading = styled.h2`
+export const StyledText = styled.p`
   color: ${({ theme }) => theme.miaWhite};
   font-family: 'Archivo', sans-serif;
   font-weight: 100;

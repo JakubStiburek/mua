@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {StyledHeading} from "./StyledHeading";
 import footer from "../localization/footer";
+import {StyledText} from "./StyledText";
 
 const Rect = styled.div`
   margin-bottom: 31.516px;
@@ -13,7 +13,7 @@ const Rect = styled.div`
   justify-content: space-evenly;
 `
 
-const Text = styled(StyledHeading)`
+const Text = styled(StyledText)`
   font-family: "DM Sans", sans-serif;
   font-size: 14px;
   line-height: 18.23px;
@@ -21,7 +21,12 @@ const Text = styled(StyledHeading)`
   margin: 0;
 `
 
-const Underlined = styled(Text)`
+const Underlined = styled(StyledText)`
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  line-height: 18.23px;
+  text-align: center;
+  margin: 0;
   text-decoration: underline;
 
   &:hover {
@@ -38,9 +43,7 @@ const Footer = () => {
 
   return (
     <Rect>
-      <Text>
-        <Underlined onClick={handleClick}>{backToTop}</Underlined>
-      </Text>
+      <Underlined onClick={handleClick}>{backToTop}</Underlined>
       <Text>{createdBy}</Text>
     </Rect>
   )

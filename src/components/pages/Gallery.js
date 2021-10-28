@@ -2,33 +2,8 @@ import styled from "styled-components";
 import Header from "../Header";
 import Footer from "../Footer";
 import Image from "../Image";
-import pictureOne from "../../media/1.jpg";
-import pictureTwo from "../../media/2.jpg";
-import pictureThree from "../../media/3.jpg";
-import pictureFour from "../../media/4.jpg";
-import pictureFive from "../../media/5.jpg";
-import pictureSix from "../../media/6.jpg";
-import pictureSeven from "../../media/7.jpg";
-import pictureEight from "../../media/8.jpg";
-import pictureNine from "../../media/9.jpg";
-import pictureTen from "../../media/10.jpg";
-import pictureEleven from "../../media/11.jpg";
-import pictureTwelve from "../../media/12.jpg";
-
-const pictures = [
-  pictureOne,
-  pictureTwo,
-  pictureThree,
-  pictureFour,
-  pictureFive,
-  pictureSix,
-  pictureSeven,
-  pictureEight,
-  pictureNine,
-  pictureTen,
-  pictureEleven,
-  pictureTwelve
-]
+import pictures from "../../constants/picturesMobile";
+import {map, reverse} from "ramda";
 
 const Layout = styled.div`
   margin: auto;
@@ -50,7 +25,8 @@ const FooterWrapper = styled.div`
 const BodyWrapper = styled.div`
   display: grid;
   place-items: center;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 16px;
   background-color: ${({theme}) => theme.miaRed};
   grid-area: 3 / 1 / 3 / 4;
 `
@@ -62,7 +38,7 @@ const _template = () => {
         <Header/>
       </HeaderWrapper>
       <BodyWrapper>
-        {pictures.map((picture, key) => <Image src={picture} key={key}/>)}
+        {reverse(map((picture, key) => <Image src={picture} key={key}/>, pictures))}
       </BodyWrapper>
       <FooterWrapper>
         <Footer/>
