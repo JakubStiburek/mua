@@ -4,7 +4,7 @@ import MuaBanner from "./MuaBanner";
 import Burger from "./Burger";
 import Menu from "./Menu";
 import styled from "styled-components";
-import {useState} from "react";
+import { useEffect, useState} from "react";
 import header from "../localization/header";
 
 const Layout = styled.div`
@@ -37,10 +37,14 @@ const Header = () => {
     burgerState ? setBurgerState(false) : setBurgerState(true);
   }
 
+  useEffect(() => {
+    window.scrollTo({top: 0, behavior: "smooth"});
+  }, [burgerState])
+
   return (
   <Layout>
     <LogoWrapper>
-      <StyledLink to="/">
+      <StyledLink to="/" onClick={toggleBurger}>
         <Logo>{logo}</Logo>
       </StyledLink>
     </LogoWrapper>
