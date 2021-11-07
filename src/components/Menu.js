@@ -30,7 +30,7 @@ const MenuStyledLink = styled(StyledLink)`
   }
 `
 
-const links = ["/about", "/sluzby", "/rezervace", "/galerie", "/kontakt", "/"]
+const links = ["/about", "/sluzby", "/clanky", "/galerie", "/rezervace", "/kontakt", "/"]
 
   const listLinks = (links) => {
     return links.map((link, key) => {
