@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import Header from "../Header";
-import Footer from "../Footer";
-import Image from "../Image";
-import pictures from "../../constants/picturesMobile";
-import {map, reverse} from "ramda";
+import Header from "./Header";
+import Footer from "./Footer";
 
-const Layout = styled.div`
+export const Layout = styled.div`
   margin: auto;
   width: 312px;
   display: grid;
@@ -14,15 +11,15 @@ const Layout = styled.div`
   gap: 5px;
 `
 
-const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div`
   grid-area: 1 / 1 / 3 / 3;
 `
 
-const FooterWrapper = styled.div`
+export const FooterWrapper = styled.div`
   grid-area: 4 / 1 / 4 / 3;
 `
 
-const BodyWrapper = styled.div`
+export const BodyWrapper = styled.div`
   display: grid;
   place-items: center;
   padding-top: 20px;
@@ -31,20 +28,20 @@ const BodyWrapper = styled.div`
   grid-area: 3 / 1 / 3 / 4;
 `
 
-const _template = () => {
+const DefaultLayout = (props) => {
   return (
     <Layout>
       <HeaderWrapper>
-        <Header/>
+        <Header />
       </HeaderWrapper>
       <BodyWrapper>
-        {reverse(map((picture, key) => <Image src={picture} key={key}/>, pictures))}
+        {props.children}
       </BodyWrapper>
       <FooterWrapper>
-        <Footer/>
+        <Footer />
       </FooterWrapper>
     </Layout>
   )
 };
 
-export default _template;
+export default DefaultLayout;

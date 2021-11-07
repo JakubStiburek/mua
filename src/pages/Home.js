@@ -1,6 +1,8 @@
+import Banner from "../components/Banner";
 import styled from "styled-components";
-import Header from "../Header";
-import Footer from "../Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import HomeGallery from "../components/HomeGallery";
 
 const Layout = styled.div`
   margin: auto;
@@ -15,17 +17,31 @@ const HeaderWrapper = styled.div`
   grid-area: 1 / 1 / 3 / 3;
 `
 
+const ServiceBanner = styled.div`
+  grid-area: 3 / 3 / 6 / 3;
+`
+
+const GalleryWrapper = styled.div`
+  grid-area: 3 / 1 / 6 / 3;
+`
+
 const FooterWrapper = styled.div`
   grid-area: 6 / 1 / 6 / 3;
 `
 
-const Contacts = () => {
+const Home = () => {
+
   return (
     <Layout>
       <HeaderWrapper>
         <Header/>
       </HeaderWrapper>
-      Contacts
+      <ServiceBanner>
+        <Banner/>
+      </ServiceBanner>
+      <GalleryWrapper>
+        <HomeGallery/>
+      </GalleryWrapper>
       <FooterWrapper>
         <Footer/>
       </FooterWrapper>
@@ -33,4 +49,4 @@ const Contacts = () => {
   )
 };
 
-export default Contacts;
+export default Home;

@@ -1,12 +1,13 @@
 import {ThemeProvider} from "styled-components";
 import {theme} from "./theme";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Contacts from "./components/pages/Contacts";
-import Gallery from "./components/pages/Gallery";
-import Reservation from "./components/pages/Reservation";
-import Services from "./components/pages/Services";
-import About from "./components/pages/About";
-import Home from "./components/pages/Home";
+import Contacts from "./pages/Contacts";
+import Gallery from "./pages/Gallery";
+import Reservation from "./pages/Reservation";
+import Services from "./pages/Services";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Articles from "./pages/Articles";
 
 const RoutedApp = () => {
   return (
@@ -27,6 +28,9 @@ const RoutedApp = () => {
           </Route>
           <Route path="/about">
             <About/>
+          </Route>
+          <Route path="/clanky">
+            <Articles />
           </Route>
           <Route path="/">
             <Home/>
