@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import {StyledLink} from "./StyledLink";
 import {useSpring, animated} from "react-spring";
 import menu from "../localization/menu";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {closeMenu} from "../slices/menuSlice";
 
 const AnimatedMenuList = styled(animated.ul)`
   z-index: 1;
@@ -11,7 +12,7 @@ const AnimatedMenuList = styled(animated.ul)`
   position: absolute;
   list-style: none;
   width: 312px;
-  height: 420px;
+  height: 422px;
   padding: unset;
   margin: unset;
   top: 245px;
@@ -21,10 +22,11 @@ const AnimatedMenuList = styled(animated.ul)`
   border-top: 5px solid ${({theme}) => theme.miaWhite};
 `
 
-const MenuStyledLink = styled(StyledLink)`
+const MenuStyledLink = styled(Link)`
+  color: ${({ theme }) => theme.miaWhite};
+  text-decoration: none;
   font-size: 24px;
   line-height: 32px;
-
   &:hover {
     color: ${({theme}) => theme.miaYellow};
   }
@@ -40,6 +42,7 @@ const links = ["/about", "/sluzby", "/clanky", "/galerie", "/rezervace", "/konta
 
 const Menu = () => {
   const location = useLocation().pathname;
+  const dispatch = useDispatch();
 
   let currentLinks = links.map(link => {
     if (link !== location) {
@@ -53,9 +56,9 @@ const Menu = () => {
 
   currentLinks = currentLinks.map(link => {
     if(link === "/") {
-      return <MenuStyledLink to={link}>{menu.home}</MenuStyledLink>
+      return <MenuStyledLink to={link} onClick={() => dispatch(closeMenu())}>{menu.home}</MenuStyledLink>
     } else {
-      return <MenuStyledLink to={link}>{menu[link.slice(1)]}</MenuStyledLink>
+      return <MenuStyledLink to={link} onClick={() => dispatch(closeMenu())}>{menu[link.slice(1)]}</MenuStyledLink>
     }
   })
 

@@ -1,11 +1,12 @@
-import {StyledLink} from "./StyledLink";
 import Logo from "./Logo";
 import MuaBanner from "./MuaBanner";
 import Burger from "./Burger";
 import Menu from "./Menu";
 import styled from "styled-components";
-import { useState} from "react";
 import header from "../localization/header";
+import {useDispatch, useSelector} from "react-redux";
+import {closeMenu, toggleMenu} from "../slices/menuSlice";
+import {Link} from "react-router-dom";
 
 const Layout = styled.div`
   margin: auto;
@@ -29,25 +30,27 @@ const BurgerWrapper = styled.div`
   background: ${({ theme }) => theme.miaRed};
 `
 
-const Header = () => {
-  const [burgerState, setBurgerState] = useState(false)
-  const { logo, muaBanner } = header;
+const StyledLink = styled(Link)`
+  color: ${({ theme }) => theme.miaWhite};
+  text-decoration: none;
+`
 
-  const toggleBurger = () => {
-    burgerState ? setBurgerState(false) : setBurgerState(true);
-  }
+const Header = () => {
+  const burgerState = useSelector((state) => state.menu.open)
+  const { logo, muaBanner } = header;
+  const dispatch = useDispatch();
 
   return (
   <Layout>
     <LogoWrapper>
-      <StyledLink to="/" onClick={toggleBurger}>
+      <StyledLink to="/" onClick={() => dispatch(closeMenu())}>
         <Logo>{logo}</Logo>
       </StyledLink>
     </LogoWrapper>
     <BannerWrapper>
       <MuaBanner>{muaBanner}</MuaBanner>
     </BannerWrapper>
-    <BurgerWrapper onClick={toggleBurger}>
+    <BurgerWrapper onClick={() => dispatch(toggleMenu())}>
       <Burger open={burgerState}/>
     </BurgerWrapper>
     {burgerState && <Menu/>}
