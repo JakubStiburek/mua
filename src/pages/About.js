@@ -13,7 +13,7 @@ const JustifiedText = styled(StyledText)`
 const About = () => {
   const { isLoading, error, data } = useQuery("repoData", () =>
     fetch(
-      `${URL.LOCAL_URL}${ENDPOINT.ABOUT_ME}`
+      `${URL.RENDER_URL}${ENDPOINT.ABOUT_ME}`
     ).then((res) => res.json())
   );
 
@@ -27,7 +27,7 @@ const About = () => {
         <StyledHeading>{data.title}</StyledHeading>
       </Heading>
       <Box h="10px" />
-      <Image src={`${URL.LOCAL_URL}${data.portrait.url}`} w="260px"/>
+      <Image src={`${URL.RENDER_URL}${data.portrait.url}`} w="260px"/>
       <Box h="10px" />
       <Center w="260px">
         <Text fontSize="sm">
