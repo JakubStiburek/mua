@@ -1,67 +1,40 @@
+import DefaultLayout from "../components/Layout";
+import {useQuery} from "react-query";
 import styled from "styled-components";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
+import {StyledText} from "../components/StyledText";
 import {StyledHeading} from "../components/StyledHeading";
-import {StyledParagraph} from "../components/StyledParagraph";
-import about from "../localization/about";
+import {URL, ENDPOINT} from "../urls";
 
-const Layout = styled.div`
-  margin: auto;
-  width: 312px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 105px auto 1fr;
-  gap: 5px;
-`
-
-const HeaderWrapper = styled.div`
-  grid-area: 1 / 1 / 3 / 3;
-`
-
-const FooterWrapper = styled.div`
-  grid-area: 4 / 1 / 4 / 3;
-`
-
-const ArticleWrapper = styled.div`
-  display: grid;
-  place-items: center;
-  background-color: ${({ theme }) => theme.miaRed};
-  grid-area: 3 / 1 / 3 / 4;
-`
-
-const ContentWrapper = styled.div`
-  margin: 30px 30px 10px 30px;
-`
-
-const Heading = styled(StyledHeading)`
-  color: ${({ theme }) => theme.miaWhite};
-  margin-bottom: 20px;
-`
-
-const Paragraph = styled(StyledParagraph)`
-  padding-bottom: 20px;
+const JustifiedText = styled(StyledText)`
+  text-align: justify;
 `
 
 const About = () => {
-  const { heading, paragraphs } = about;
+  const { isLoading, error, data } = useQuery("repoData", () =>
+    fetch(
+      `${URL.RENDER_URL}${ENDPOINT.ABOUT_ME}`
+    ).then((res) => res.json())
+  );
 
-  const text = paragraphs.map((paragraph, key) => <Paragraph key={key}>{paragraph}</Paragraph>)
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
 
   return (
-    <Layout>
-      <HeaderWrapper>
-        <Header/>
-      </HeaderWrapper>
-      <ArticleWrapper>
-        <ContentWrapper>
-          <Heading>{heading}</Heading>
-          {text}
-        </ContentWrapper>
-      </ArticleWrapper>
-      <FooterWrapper>
-        <Footer/>
-      </FooterWrapper>
-    </Layout>
+    <DefaultLayout>
+      <Heading size="xl">
+        <StyledHeading>{data.title}</StyledHeading>
+      </Heading>
+      <Box h="10px" />
+      <Image src={`${URL.RENDER_URL}${data.portrait.url}`} w="260px"/>
+      <Box h="10px" />
+      <Center w="260px">
+        <Text fontSize="sm">
+          <JustifiedText>{data.content}</JustifiedText>
+        </Text>
+      </Center>
+    </DefaultLayout>
   )
 };
 
