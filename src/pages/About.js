@@ -34,7 +34,7 @@ const About = () => {
     <DefaultLayout>
       <Center w="260px">
         <Text fontSize="sm">
-          <JustifiedText>{`${common.error} ${error.message}`}</JustifiedText>
+          <StyledText>{`${common.error} ${error.message}`}</StyledText>
         </Text>
       </Center>
     </DefaultLayout>

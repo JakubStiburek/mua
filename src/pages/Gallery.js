@@ -7,6 +7,7 @@ import {StyledHeading} from "../components/StyledHeading";
 import gallery from "../localization/gallery";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
+import {StyledText} from "../components/StyledText";
 
 const Gallery = () => {
   const {isLoading, error, data} = useQuery("gallery", () =>
@@ -33,7 +34,7 @@ const Gallery = () => {
     <DefaultLayout>
       <Center w="260px">
         <Text fontSize="sm">
-          <JustifiedText>{`${common.error} ${error.message}`}</JustifiedText>
+          <StyledText>{`${common.error} ${error.message}`}</StyledText>
         </Text>
       </Center>
     </DefaultLayout>
