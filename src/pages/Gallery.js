@@ -1,14 +1,33 @@
-import Image from "../components/Image";
-import pictures from "../constants/picturesMobile";
-import {map, reverse} from "ramda";
+import {map} from "ramda";
 import DefaultLayout from "../components/Layout";
+import {useQuery} from "react-query";
+import {ENDPOINT, URL} from "../urls";
+import {Box, Image} from "@chakra-ui/react";
 
-const _template = () => {
+const Gallery = () => {
+  const {isLoading, error, data} = useQuery("gallery", () =>
+    fetch(
+      `${URL.RENDER_URL}${ENDPOINT.GALLERY}`
+    ).then((res) => res.json())
+  );
+
+  if (isLoading) return "Loading...";
+
+  if (error) return "An error has occurred: " + error.message;
+
+  const renderedImages = map(image => {
+    return (
+      <Box padding="5px">
+        <Image src={`${URL.RENDER_URL}${image.url}`} w={image.width} h={image.height} />
+      </Box>
+    )
+  }, data.images)
+
   return (
     <DefaultLayout>
-      {reverse(map((picture, key) => <Image src={picture} key={key}/>, pictures))}
+      {renderedImages}
     </DefaultLayout>
   )
 };
 
-export default _template;
+export default Gallery;
