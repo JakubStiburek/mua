@@ -21,12 +21,14 @@ const About = () => {
 
   if (isLoading) return (
     <DefaultLayout>
-      <Loader
-        type="Grid"
-        color="#FFF4F5"
-        height={50}
-        width={50}
-      />
+      <Center h="400px">
+        <Loader
+          type="Grid"
+          color="#FFF4F5"
+          height={50}
+          width={50}
+        />
+      </Center>
     </DefaultLayout>
   )
 

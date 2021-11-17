@@ -18,15 +18,17 @@ const Gallery = () => {
 
   if (isLoading) return (
     <DefaultLayout>
-      <Heading size="xl">
-        <StyledHeading>{gallery.title}</StyledHeading>
-      </Heading>
-      <Loader
-        type="Grid"
-        color="#FFF4F5"
-        height={50}
-        width={50}
-      />
+        <Heading size="xl">
+          <StyledHeading>{gallery.title}</StyledHeading>
+        </Heading>
+        <Center h="400px">
+          <Loader
+            type="Grid"
+            color="#FFF4F5"
+            height={50}
+            width={50}
+          />
+        </Center>
     </DefaultLayout>
   )
 
