@@ -16,6 +16,14 @@ export const StyledHeading2 = styled.h2`
   margin: 0;
 `
 
+export const StyledHeading2left = styled.h2`
+  color: ${({ theme }) => theme.miaWhite};
+  font-family: 'Archivo', sans-serif;
+  font-weight: 100;
+  text-align: left;
+  margin: 0;
+`
+
 export const StyledHeading3 = styled.h3`
   color: ${({ theme }) => theme.miaWhite};
   font-family: 'Archivo', sans-serif;

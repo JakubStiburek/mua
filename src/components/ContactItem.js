@@ -9,6 +9,7 @@ const ContactItem = ({href, icon, label}) => {
           <Box>
             {icon}
           </Box>
+          <Box w="5px"/>
           <Box>
             <Text fontSize="sm">
               <StyledText>{label}</StyledText>
