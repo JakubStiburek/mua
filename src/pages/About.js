@@ -5,6 +5,8 @@ import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
 import {StyledText} from "../components/StyledText";
 import {StyledHeading} from "../components/StyledHeading";
 import {URL, ENDPOINT} from "../urls";
+import Loader from "react-loader-spinner";
+import common from "../localization/common";
 
 const JustifiedText = styled(StyledText)`
   text-align: justify;
@@ -17,9 +19,26 @@ const About = () => {
     ).then((res) => res.json())
   );
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return (
+    <DefaultLayout>
+      <Loader
+        type="Grid"
+        color="#FFF4F5"
+        height={50}
+        width={50}
+      />
+    </DefaultLayout>
+  )
 
-  if (error) return "An error has occurred: " + error.message;
+  if (error) return (
+    <DefaultLayout>
+      <Center w="260px">
+        <Text fontSize="sm">
+          <JustifiedText>{`${common.error} ${error.message}`}</JustifiedText>
+        </Text>
+      </Center>
+    </DefaultLayout>
+  )
 
   return (
     <DefaultLayout>

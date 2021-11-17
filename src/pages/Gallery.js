@@ -2,7 +2,11 @@ import {map} from "ramda";
 import DefaultLayout from "../components/Layout";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
-import {Box, Image} from "@chakra-ui/react";
+import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
+import {StyledHeading} from "../components/StyledHeading";
+import gallery from "../localization/gallery";
+import Loader from "react-loader-spinner";
+import common from "../localization/common";
 
 const Gallery = () => {
   const {isLoading, error, data} = useQuery("gallery", () =>
@@ -11,9 +15,29 @@ const Gallery = () => {
     ).then((res) => res.json())
   );
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return (
+    <DefaultLayout>
+      <Heading size="xl">
+        <StyledHeading>{gallery.title}</StyledHeading>
+      </Heading>
+      <Loader
+        type="Grid"
+        color="#FFF4F5"
+        height={50}
+        width={50}
+      />
+    </DefaultLayout>
+  )
 
-  if (error) return "An error has occurred: " + error.message;
+  if (error) return (
+    <DefaultLayout>
+      <Center w="260px">
+        <Text fontSize="sm">
+          <JustifiedText>{`${common.error} ${error.message}`}</JustifiedText>
+        </Text>
+      </Center>
+    </DefaultLayout>
+  )
 
   const renderedImages = map(image => {
     return (
@@ -25,6 +49,9 @@ const Gallery = () => {
 
   return (
     <DefaultLayout>
+      <Heading size="xl">
+        <StyledHeading>{gallery.title}</StyledHeading>
+      </Heading>
       {renderedImages}
     </DefaultLayout>
   )
