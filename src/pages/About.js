@@ -27,8 +27,8 @@ const About = () => {
         <StyledHeading>{data.title}</StyledHeading>
       </Heading>
       <Box h="10px" />
-      <Image src={`${URL.RENDER_URL}${data.portrait.url}`} w="260px"/>
-      <Box h="10px" />
+      <Image src={`${URL.RENDER_URL}${data.portrait.url}`} w={data.portrait.width} h={data.portrait.height} borderRadius="50px" />
+      <Box h="20px" />
       <Center w="260px">
         <Text fontSize="sm">
           <JustifiedText>{data.content}</JustifiedText>
