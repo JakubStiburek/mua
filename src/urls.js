@@ -6,4 +6,5 @@ export const URL = {
 export const ENDPOINT = {
   ABOUT_ME: "/aboutme",
   GALLERY: "/gallery",
+  ARTICLES: "/articles",
 }
