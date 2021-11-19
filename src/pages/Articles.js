@@ -43,11 +43,15 @@ const Articles = () => {
     </DefaultLayout>
   )
 
-  console.log(data)
-
-  const getMediaUrls = (media) => map((item) => item.url, media);
-
-  // const renderArticles = map((item) => <Article title={item.title} topic={item.topic} content={item.content} createdAt={item.created_at} coverUrl={item.cover.url} media={getMediaUrls(item.media)} />)
+  const renderArticles = map((item) =>
+    <Article
+    title={item.title}
+    topic={item.topic}
+    content={item.content}
+    createdAt={item.created_at}
+    coverUrl={item.cover.url}
+    media={item.media}
+  />, data )
 
 
   return (
@@ -55,8 +59,7 @@ const Articles = () => {
       <Heading size="xl">
         <StyledHeading>{articles.title}</StyledHeading>
       </Heading>
-      <Article title={data[0].title} topic={data[0].topic} content={data[0].content} createdAt={data[0].created_at} coverUrl={data[0].cover.url} media={getMediaUrls(data[0].media)} />
-      {/*{renderArticles}*/}
+      {renderArticles}
     </DefaultLayout>
   )
 };
