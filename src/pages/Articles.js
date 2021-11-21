@@ -1,14 +1,12 @@
 import DefaultLayout from "../components/Layout";
-import {StyledText} from "../components/StyledText";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
 import {Center, Heading, Text} from "@chakra-ui/react";
-import {StyledHeading} from "../components/StyledHeading";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
-import {map} from "ramda";
 import articles from "../localization/articles";
 import Article from "../components/Article";
+import mapIndexed from "../utils/mapIndexed";
 
 const Articles = () => {
   const {isLoading, error, data} = useQuery("gallery", () =>
@@ -19,9 +17,7 @@ const Articles = () => {
 
   if (isLoading) return (
     <DefaultLayout>
-      <Heading size="xl">
-        <StyledHeading>{articles.title}</StyledHeading>
-      </Heading>
+      <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
       <Center h="400px">
         <Loader
           type="Grid"
@@ -36,14 +32,12 @@ const Articles = () => {
   if (error) return (
     <DefaultLayout>
       <Center w="260px">
-        <Text fontSize="sm">
-          <StyledText>{`${common.error} ${error.message}`}</StyledText>
-        </Text>
+        <Text fontSize="sm" align="center">{`${common.error} ${error.message}`}</Text>
       </Center>
     </DefaultLayout>
   )
 
-  const renderArticles = map((item) =>
+  const renderArticles = mapIndexed((item, key) =>
     <Article
     title={item.title}
     topic={item.topic}
@@ -51,14 +45,13 @@ const Articles = () => {
     createdAt={item.created_at}
     coverUrl={item.cover.url}
     media={item.media}
+    key={key}
   />, data )
 
 
   return (
     <DefaultLayout>
-      <Heading size="xl">
-        <StyledHeading>{articles.title}</StyledHeading>
-      </Heading>
+      <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
       {renderArticles}
     </DefaultLayout>
   )
