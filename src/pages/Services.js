@@ -1,10 +1,10 @@
 import DefaultLayout from "../components/Layout"
-import {StyledText} from "../components/StyledText";
+import {Text} from "@chakra-ui/react";
 
 const Services = () => {
   return (
     <DefaultLayout>
-      <StyledText>services</StyledText>
+      <Text>services</Text>
     </DefaultLayout>
   )
 };

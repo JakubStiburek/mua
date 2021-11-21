@@ -11,7 +11,7 @@ const Article = ({title, topic, content, createdAt, coverUrl, media}) => {
       <Heading size="md" fontWeight={100}>{title}</Heading>
       <Image src={`${URL.RENDER_URL}${coverUrl}`} w="260px"/>
       <Box w={260}>
-        <Text fontSize="xs" align="justify"><ReactMarkdown children={content}/></Text>
+        <Box fontSize="xs" align="justify"><ReactMarkdown children={content}/></Box>
         <Text fontSize="xs">{`#${topic}`}</Text>
         <Text fontSize="xs">{createdAt}</Text>
         {images}

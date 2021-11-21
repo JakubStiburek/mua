@@ -31,8 +31,9 @@ const MenuStyledLink = styled(Link)`
     color: ${({theme}) => theme.miaYellow};
   }
 `
+//TODO přidat , "/rezervace"
 
-const links = ["/about", "/sluzby", "/clanky", "/galerie", "/rezervace", "/kontakt", "/"]
+const links = ["/about", "/sluzby", "/clanky", "/galerie", "/kontakt", "/"]
 
   const listLinks = (links) => {
     return links.map((link, key) => {

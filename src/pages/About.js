@@ -1,7 +1,6 @@
 import DefaultLayout from "../components/Layout";
 import {useQuery} from "react-query";
 import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
-import {StyledText} from "../components/StyledText";
 import {URL, ENDPOINT} from "../urls";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
@@ -29,9 +28,7 @@ const About = () => {
   if (error) return (
     <DefaultLayout>
       <Center w="260px">
-        <Text fontSize="sm">
-          <StyledText>{`${common.error} ${error.message}`}</StyledText>
-        </Text>
+        <Text fontSize="sm">{`${common.error} ${error.message}`}</Text>
       </Center>
     </DefaultLayout>
   )
