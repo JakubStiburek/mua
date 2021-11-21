@@ -10,6 +10,8 @@ const theme = extendTheme({
     global: {
       body: {
         bg: "#FFF4F5",
+        color: "#FFF4F5",
+        fontFamily: "Archivo",
       }
     }
   }
