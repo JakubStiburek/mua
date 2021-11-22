@@ -3,6 +3,7 @@ import Caret from "./Caret";
 import {URL} from "../urls";
 import {useState} from "react";
 import CaretOpen from "./CaretOpen";
+import Pointer from "./Pointer";
 
 const Product = ({product}) => {
   const [open, setOpen] = useState(false);
@@ -16,7 +17,9 @@ const Product = ({product}) => {
       <Flex onClick={handleClick} w="260px" justify="flex-start" direction="row">
         {open === false ? <Caret/> : <CaretOpen/>}
         <Box w="5px"/>
-        <Heading size="md" fontWeight={100}>{product.title}</Heading>
+        <Pointer>
+          <Heading size="md" fontWeight={100}>{product.title}</Heading>
+        </Pointer>
       </Flex>
       <Box h="5px"/>
       {open &&

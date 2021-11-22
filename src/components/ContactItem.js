@@ -8,10 +8,13 @@ const ContactItem = ({href, icon, label}) => {
           <Box>
             {icon}
           </Box>
-          <Box width="5px"/>
+          {label &&
           <Box>
-            <Text fontSize="sm">{label}</Text>
+            <Box paddingLeft="5px">
+              <Text fontSize="sm">{label}</Text>
+            </Box>
           </Box>
+          }
         </Flex>
       </Center>
     </Link>
