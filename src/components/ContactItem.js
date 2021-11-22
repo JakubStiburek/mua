@@ -1,5 +1,4 @@
 import {Box, Center, Flex, Link, Text} from "@chakra-ui/react";
-import {StyledText} from "./StyledText";
 
 const ContactItem = ({href, icon, label}) => {
   return (
@@ -9,11 +8,9 @@ const ContactItem = ({href, icon, label}) => {
           <Box>
             {icon}
           </Box>
-          <Box w="5px"/>
+          <Box width="5px"/>
           <Box>
-            <Text fontSize="sm">
-              <StyledText>{label}</StyledText>
-            </Text>
+            <Text fontSize="sm">{label}</Text>
           </Box>
         </Flex>
       </Center>

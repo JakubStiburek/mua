@@ -9,7 +9,7 @@ const Layout = styled.div`
   width: 312px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 105px 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 102px 1fr 1fr 0.90fr 1fr;
   gap: 5px;
 `
 

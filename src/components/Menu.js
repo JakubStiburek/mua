@@ -12,10 +12,10 @@ const AnimatedMenuList = styled(animated.ul)`
   position: absolute;
   list-style: none;
   width: 312px;
-  height: 422px;
+  height: 420px;
   padding: unset;
   margin: unset;
-  top: 245px;
+  top: 246px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -31,8 +31,9 @@ const MenuStyledLink = styled(Link)`
     color: ${({theme}) => theme.miaYellow};
   }
 `
+//TODO přidat , "/rezervace"
 
-const links = ["/about", "/sluzby", "/clanky", "/galerie", "/rezervace", "/kontakt", "/"]
+const links = ["/about", "/sluzby", "/clanky", "/galerie", "/kontakt", "/"]
 
   const listLinks = (links) => {
     return links.map((link, key) => {
