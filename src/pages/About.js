@@ -6,7 +6,7 @@ import Loader from "react-loader-spinner";
 import common from "../localization/common";
 
 const About = () => {
-  const {isLoading, error, data} = useQuery("repoData", () =>
+  const {isLoading, error, data} = useQuery("about", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.ABOUT_ME}`
     ).then((res) => res.json())
