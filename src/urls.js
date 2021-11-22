@@ -8,4 +8,9 @@ export const ENDPOINT = {
   GALLERY: "/gallery",
   ARTICLES: "/articles",
   PRODUCTS: "/products",
+  CONTACTS: "/contacts",
+  FACEBOOK: "/contacts?id=1",
+  INSTAGRAM: "/contacts?id=2",
+  EMAIL: "/contacts?id=3",
+  PHONE: "/contacts?id=4"
 }

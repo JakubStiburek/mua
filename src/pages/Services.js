@@ -9,7 +9,7 @@ import Product from "../components/Product";
 import mapIndexed from "../utils/mapIndexed";
 
 const Services = () => {
-  const {isLoading, error, data} = useQuery("gallery", () =>
+  const {isLoading, error, data} = useQuery("services", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.PRODUCTS}`
     ).then((res) => res.json())

@@ -9,7 +9,7 @@ import Article from "../components/Article";
 import mapIndexed from "../utils/mapIndexed";
 
 const Articles = () => {
-  const {isLoading, error, data} = useQuery("gallery", () =>
+  const {isLoading, error, data} = useQuery("services", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.ARTICLES}`
     ).then((res) => res.json())
