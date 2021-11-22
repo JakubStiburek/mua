@@ -2,13 +2,11 @@ import DefaultLayout from "../components/Layout"
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
 import {Center, Heading, Text} from "@chakra-ui/react";
-import {StyledHeading} from "../components/StyledHeading";
 import Loader from "react-loader-spinner";
-import {StyledText} from "../components/StyledText";
 import common from "../localization/common";
-import {map} from "ramda";
 import services from "../localization/services";
 import Product from "../components/Product";
+import mapIndexed from "../utils/mapIndexed";
 
 const Services = () => {
   const {isLoading, error, data} = useQuery("gallery", () =>
@@ -19,9 +17,7 @@ const Services = () => {
 
   if (isLoading) return (
     <DefaultLayout>
-      <Heading size="xl">
-        <StyledHeading>{services.title}</StyledHeading>
-      </Heading>
+      <Heading size="xl" fontWeight={100}>{services.title}</Heading>
       <Center h="400px">
         <Loader
           type="Grid"
@@ -36,20 +32,16 @@ const Services = () => {
   if (error) return (
     <DefaultLayout>
       <Center w="260px">
-        <Text fontSize="sm">
-          <StyledText>{`${common.error} ${error.message}`}</StyledText>
-        </Text>
+        <Text fontSize="sm">{`${common.error} ${error.message}`}</Text>
       </Center>
     </DefaultLayout>
   )
 
-  const renderProducts = map(product => <Product product={product} />, data)
+  const renderProducts = mapIndexed((product, key) => <Product product={product} key={key} />, data)
 
   return (
     <DefaultLayout>
-      <Heading size="xl">
-        <StyledHeading>{services.title}</StyledHeading>
-      </Heading>
+      <Heading size="xl" fontWeight={100}>{services.title}</Heading>
       {renderProducts}
     </DefaultLayout>
   )

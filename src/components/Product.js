@@ -1,22 +1,8 @@
-import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
+import {Box, Center, Flex, Heading, Image, Text} from "@chakra-ui/react";
 import Caret from "./Caret";
-import {StyledHeading2left} from "./StyledHeading";
-import styled from "styled-components";
-import {StyledText} from "./StyledText";
 import {URL} from "../urls";
 import {useState} from "react";
 import CaretOpen from "./CaretOpen";
-
-const JustifiedText = styled(StyledText)`
-  text-align: justify;
-`
-
-const StyledFlex = styled.div`
-  width: 260px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-`
 
 const Product = ({product}) => {
   const [open, setOpen] = useState(false);
@@ -27,29 +13,24 @@ const Product = ({product}) => {
 
   return (
     <Box>
-      <StyledFlex onClick={handleClick}>
+      <Flex onClick={handleClick} w="260px" justify="flex-start" direction="row">
         {open === false ? <Caret/> : <CaretOpen/>}
         <Box w="5px"/>
-        <Heading size="md">
-          <StyledHeading2left>{product.title}</StyledHeading2left>
-        </Heading>
-      </StyledFlex>
+        <Heading size="md" fontWeight={100}>{product.title}</Heading>
+      </Flex>
       <Box h="5px"/>
       {open &&
       <Box>
         <Image src={`${URL.RENDER_URL}${product.cover.url}`} w="260px"/>
         <Box h="5px"/>
         <Center w="260px">
-          <Text fontSize="sm">
-            <JustifiedText>{product.description}</JustifiedText>
-          </Text>
+          <Text fontSize="sm" align="justify">{product.description}</Text>
         </Center>
         <Box h="5px"/>
-        <StyledFlex>
-          <Text fontSize="lg">
-            <StyledText>{`${product.price} Kč`}</StyledText>
-          </Text>
-        </StyledFlex>
+        <Flex justify="flex-start">
+          <Text fontSize="lg">{`${product.price} Kč`}</Text>
+          {/* TODO doplnit button na rezervaci nebo kontakty */}
+        </Flex>
       </Box>}
     </Box>
   )
