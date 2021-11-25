@@ -4,6 +4,7 @@ import {URL} from "../urls";
 import {useState} from "react";
 import CaretOpen from "./CaretOpen";
 import Pointer from "./Pointer";
+import ReactMarkdown from "react-markdown";
 
 const Product = ({product}) => {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,7 @@ const Product = ({product}) => {
   return (
     <Box>
       <Flex onClick={handleClick} w="260px" justify="flex-start" direction="row">
-        {open === false ? <Caret/> : <CaretOpen/>}
+        {open ? <CaretOpen/> : <Caret/> }
         <Box w="5px"/>
         <Pointer>
           <Heading size="md" fontWeight={100}>{product.title}</Heading>
@@ -26,8 +27,8 @@ const Product = ({product}) => {
       <Box>
         <Image src={`${URL.RENDER_URL}${product.cover.url}`} w="260px"/>
         <Box h="5px"/>
-        <Center w="260px">
-          <Text fontSize="sm" align="justify">{product.description}</Text>
+        <Center w="260px" fontSize="sm" align="justify">
+          <ReactMarkdown children={product.description} />
         </Center>
         <Box h="5px"/>
         <Flex justify="flex-start">
