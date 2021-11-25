@@ -1,12 +1,12 @@
 import DefaultLayout from "../components/Layout";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
-import {Center, Heading, Text} from "@chakra-ui/react";
+import {Box, Center, Container, Flex, Heading, Text} from "@chakra-ui/react";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import articles from "../localization/articles";
-import Article from "../components/Article";
 import mapIndexed from "../utils/mapIndexed";
+import ArticleItem from "../components/ArticleItem";
 
 const Articles = () => {
   const {isLoading, error, data} = useQuery("services", () =>
@@ -37,22 +37,18 @@ const Articles = () => {
     </DefaultLayout>
   )
 
-  const renderArticles = mapIndexed((item, key) =>
-    <Article
-    title={item.title}
-    topic={item.topic}
-    content={item.content}
-    createdAt={item.created_at}
-    coverUrl={item.cover.url}
-    media={item.media}
-    key={key}
-  />, data )
+  const renderArticleItems = mapIndexed((item, key) => <ArticleItem title={item.title} id={item.id} createdAt={item.created_at} topic={item.topic} key={key} />, data)
 
 
   return (
     <DefaultLayout>
-      <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
-      {renderArticles}
+      <Container centerContent minH="420px">
+        <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
+        <Box h="10px"/>
+        <Flex direction="column" align="left" justify="space-evenly" minH="200px">
+        {renderArticleItems}
+        </Flex>
+      </Container>
     </DefaultLayout>
   )
 };

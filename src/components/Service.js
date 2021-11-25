@@ -6,7 +6,7 @@ import CaretOpen from "./CaretOpen";
 import Pointer from "./Pointer";
 import ReactMarkdown from "react-markdown";
 
-const Product = ({product}) => {
+const Service = ({product}) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
@@ -40,4 +40,4 @@ const Product = ({product}) => {
   )
 };
 
-export default Product;
+export default Service;
