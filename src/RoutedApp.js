@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Articles from "./pages/Articles";
+import ArticleSingle from "./pages/ArticleSingle";
 
 const RoutedApp = () => {
   return (
@@ -31,6 +32,9 @@ const RoutedApp = () => {
           </Route>
           <Route path="/clanky">
             <Articles />
+          </Route>
+          <Route path="/clanek/:id">
+            <ArticleSingle />
           </Route>
           <Route path="/">
             <Home/>
