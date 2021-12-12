@@ -10,7 +10,7 @@ import Article from "../components/Article";
 const ArticleSingle = () => {
   const {id} = useParams()
   const {isLoading, error, data} = useQuery(["article", id], () => fetch(
-      `${URL.RENDER_URL}${ENDPOINT.ARTICLES}?id=${id}`
+      `${URL.RENDER_URL}${ENDPOINT.ARTICLE}${id}`
     ).then((res) => res.json())
   )
 
@@ -35,15 +35,16 @@ const ArticleSingle = () => {
     </DefaultLayout>
   )
 
+  console.log(data)
   return (
     <DefaultLayout>
       <Article
-        title={data[0].title}
-        topic={data[0].topic}
-        content={data[0].content}
-        createdAt={data[0].created_at}
-        coverUrl={data[0].cover.url}
-        media={data[0].media}
+        title={data.title}
+        topic={data.topic}
+        content={data.content}
+        createdAt={data.created_at}
+        coverUrl={data.cover.url}
+        media={data.media}
       />
     </DefaultLayout>
   )
