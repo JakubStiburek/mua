@@ -6,8 +6,8 @@ export const URL = {
 export const ENDPOINT = {
   ABOUT_ME: "/aboutme",
   GALLERY: "/gallery",
-  ARTICLES: "/articles",
-  PRODUCTS: "/products",
+  ARTICLES: "/articles?_sort=created_at:DESC",
+  PRODUCTS: "/products?_sort=priority",
   CONTACTS: "/contacts",
   FACEBOOK: "/contacts?id=1",
   INSTAGRAM: "/contacts?id=2",
