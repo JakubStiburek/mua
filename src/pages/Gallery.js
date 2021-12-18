@@ -39,7 +39,7 @@ const Gallery = () => {
   const renderedImages = mapIndexed((image, key) => {
     return (
       <Box padding="5px" key={key}>
-        <Image src={`${URL.RENDER_URL}${image.url}`} w={image.width} h={image.height}/>
+        <Image src={`${URL.RENDER_URL}${image.url}`} w={270} h={image.height}/>
       </Box>
     )
   }, data.images)
