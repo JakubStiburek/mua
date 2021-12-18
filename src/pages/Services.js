@@ -43,7 +43,7 @@ const Services = () => {
     <DefaultLayout>
       <Container centerContent minH="420px">
         <Heading size="xl" fontWeight={100}>{services.title}</Heading>
-        <Box h="10px"/>
+        <Box h="20px"/>
         <Flex direction="column" align="center" justify="space-evenly" minH="200px">
           {renderProducts}
         </Flex>
