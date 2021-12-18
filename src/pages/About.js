@@ -42,8 +42,7 @@ const About = () => {
         {data.title}
       </Heading>
       <Box h="10px"/>
-      <Image src={`${URL.RENDER_URL}${data.portrait.url}`} w={data.portrait.width} h={data.portrait.height}
-             borderRadius="50px"/>
+      <Image src={`${URL.RENDER_URL}${data.portrait.url}`} w={data.portrait.width} borderRadius="50px"/>
       <Box h="20px"/>
       <Center w="260px" fontSize="sm" align="justify">
         <ReactMarkdown children={data.content} />
