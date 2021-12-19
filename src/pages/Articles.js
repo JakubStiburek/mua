@@ -1,18 +1,30 @@
 import DefaultLayout from "../components/Layout";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
-import {Box, Center, Container, Flex, Heading, Select, Text} from "@chakra-ui/react";
+import {Box, Center, Container, Heading, Text, VStack} from "@chakra-ui/react";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import articles from "../localization/articles";
 import mapIndexed from "../utils/mapIndexed";
 import ArticleItem from "../components/ArticleItem";
-import {values} from "ramda";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
+import Filter from "../components/Filter";
+import {useSelector} from "react-redux";
+import {filter, indexOf, keys, values} from "ramda";
 
 const Articles = () => {
   const {miaWhite} = useContext(ColorThemeContext);
+
+  const selectedTopic = useSelector((state) => state.filter.selected)
+
+  const translateTopic = (topics, selectedTopic) => {
+    return keys(topics)[indexOf(selectedTopic, values(topics))]
+  }
+
+  const filterByTopic = (data, selectedTopic) => {
+    return selectedTopic === "all" ? data : filter((item) => item.topic === translateTopic(articles.topics, selectedTopic), data)
+  }
 
   const {isLoading, error, data} = useQuery("services", () =>
     fetch(
@@ -43,20 +55,18 @@ const Articles = () => {
   )
 
   const renderArticleItems = mapIndexed((item, key) =>
-    <ArticleItem title={item.title} id={item.id} createdAt={item.created_at} topic={item.topic} key={key}/>, data)
+    <ArticleItem title={item.title} id={item.id} createdAt={item.created_at} topic={item.topic} key={key}/>, filterByTopic(data, selectedTopic))
 
   return (
     <DefaultLayout>
       <Container centerContent minH="420px">
         <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
         <Box h="10px"/>
-        <Select placeholder={articles.filterPlaceholder} w={220}>
-          {mapIndexed((topic, key) =>
-            <option key={key} value={`option${key}`}>{topic}</option>, values(articles.topics))}
-        </Select>
-        <Flex direction="column" align="left" justify="space-evenly" minH="200px">
+        <Filter/>
+        <Box h="10px"/>
+        <VStack direction="column" align="flex-start" minH="200px" minW="220">
           {renderArticleItems}
-        </Flex>
+        </VStack>
       </Container>
     </DefaultLayout>
   )
