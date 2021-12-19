@@ -6,8 +6,12 @@ import gallery from "../localization/gallery";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import mapIndexed from "../utils/mapIndexed";
+import {useContext} from "react";
+import {ColorThemeContext} from "../App";
 
 const Gallery = () => {
+  const {miaWhite} = useContext(ColorThemeContext);
+
   const {isLoading, error, data} = useQuery("gallery", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.GALLERY}`
@@ -20,7 +24,7 @@ const Gallery = () => {
       <Center h="400px">
         <Loader
           type="Grid"
-          color="#FFF4F5"
+          color={miaWhite}
           height={50}
           width={50}
         />

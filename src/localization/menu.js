@@ -5,7 +5,7 @@ const menu = {
   sluzby: "Služby & ceník",
   galerie: "Galerie",
   kontakt:"Kontakt",
-  clanky: "Moje práce",
+  clanky: "Můj blog",
   home: "Domů"
 }
 

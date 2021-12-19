@@ -1,5 +1,6 @@
 const articles = {
-  title: 'Moje práce',
+  title: 'Můj blog',
+  filterPlaceholder: 'Filtrovat články',
   topics: {
     wedding: 'svatební',
     photo: 'foto',

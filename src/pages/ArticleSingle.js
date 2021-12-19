@@ -6,8 +6,11 @@ import {Center, Text} from "@chakra-ui/react";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import Article from "../components/Article";
+import {useContext} from "react";
+import {ColorThemeContext} from "../App";
 
 const ArticleSingle = () => {
+  const {miaWhite} = useContext(ColorThemeContext);
   const {id} = useParams()
   const {isLoading, error, data} = useQuery(["article", id], () => fetch(
       `${URL.RENDER_URL}${ENDPOINT.ARTICLE}${id}`
@@ -19,7 +22,7 @@ const ArticleSingle = () => {
       <Center h="400px">
         <Loader
           type="Grid"
-          color="#FFF4F5"
+          color={miaWhite}
           height={50}
           width={50}
         />

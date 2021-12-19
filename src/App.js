@@ -3,6 +3,8 @@ import store from "./store";
 import {Provider} from "react-redux";
 import {QueryClient, QueryClientProvider} from "react-query";
 import {ChakraProvider, extendTheme} from "@chakra-ui/react";
+import {colorTheme} from "./colorTheme";
+import React from "react"
 
 const queryClient = new QueryClient();
 const theme = extendTheme({
@@ -17,12 +19,17 @@ const theme = extendTheme({
   }
 })
 
+export const ColorThemeContext = React.createContext(colorTheme);
+
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={theme}>
         <Provider store={store}>
-          <RoutedApp/>
+          <ColorThemeContext.Provider value={colorTheme}>
+            <RoutedApp/>
+          </ColorThemeContext.Provider>
         </Provider>
       </ChakraProvider>
     </QueryClientProvider>

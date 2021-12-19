@@ -1,14 +1,19 @@
 import DefaultLayout from "../components/Layout";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
-import {Box, Center, Container, Flex, Heading, Text} from "@chakra-ui/react";
+import {Box, Center, Container, Flex, Heading, Select, Text} from "@chakra-ui/react";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import articles from "../localization/articles";
 import mapIndexed from "../utils/mapIndexed";
 import ArticleItem from "../components/ArticleItem";
+import {values} from "ramda";
+import {useContext} from "react";
+import {ColorThemeContext} from "../App";
 
 const Articles = () => {
+  const {miaWhite} = useContext(ColorThemeContext);
+
   const {isLoading, error, data} = useQuery("services", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.ARTICLES}`
@@ -21,7 +26,7 @@ const Articles = () => {
       <Center h="400px">
         <Loader
           type="Grid"
-          color="#FFF4F5"
+          color={miaWhite}
           height={50}
           width={50}
         />
@@ -37,16 +42,20 @@ const Articles = () => {
     </DefaultLayout>
   )
 
-  const renderArticleItems = mapIndexed((item, key) => <ArticleItem title={item.title} id={item.id} createdAt={item.created_at} topic={item.topic} key={key} />, data)
-
+  const renderArticleItems = mapIndexed((item, key) =>
+    <ArticleItem title={item.title} id={item.id} createdAt={item.created_at} topic={item.topic} key={key}/>, data)
 
   return (
     <DefaultLayout>
       <Container centerContent minH="420px">
         <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
         <Box h="10px"/>
+        <Select placeholder={articles.filterPlaceholder} w={220}>
+          {mapIndexed((topic, key) =>
+            <option key={key} value={`option${key}`}>{topic}</option>, values(articles.topics))}
+        </Select>
         <Flex direction="column" align="left" justify="space-evenly" minH="200px">
-        {renderArticleItems}
+          {renderArticleItems}
         </Flex>
       </Container>
     </DefaultLayout>

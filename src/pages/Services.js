@@ -7,8 +7,12 @@ import common from "../localization/common";
 import services from "../localization/services";
 import Service from "../components/Service";
 import mapIndexed from "../utils/mapIndexed";
+import {useContext} from "react";
+import {ColorThemeContext} from "../App";
 
 const Services = () => {
+  const {miaWhite} = useContext(ColorThemeContext);
+
   const {isLoading, error, data} = useQuery("services", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.PRODUCTS}`
@@ -21,7 +25,7 @@ const Services = () => {
       <Center h="400px">
         <Loader
           type="Grid"
-          color="#FFF4F5"
+          color={miaWhite}
           height={50}
           width={50}
         />
