@@ -1,5 +1,5 @@
 import {ThemeProvider} from "styled-components";
-import {theme} from "./theme";
+import {colorTheme} from "./colorTheme";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Contacts from "./pages/Contacts";
 import Gallery from "./pages/Gallery";
@@ -13,7 +13,7 @@ import ArticleSingle from "./pages/ArticleSingle";
 const RoutedApp = () => {
   return (
     <Router>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={colorTheme}>
         <Switch>
           <Route path="/kontakt">
             <Contacts/>
@@ -31,10 +31,10 @@ const RoutedApp = () => {
             <About/>
           </Route>
           <Route path="/clanky">
-            <Articles />
+            <Articles/>
           </Route>
           <Route path="/clanek/:id">
-            <ArticleSingle />
+            <ArticleSingle/>
           </Route>
           <Route path="/">
             <Home/>

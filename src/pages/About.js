@@ -5,8 +5,11 @@ import {URL, ENDPOINT} from "../urls";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import ReactMarkdown from "react-markdown";
+import {useContext} from "react";
+import {ColorThemeContext} from "../App";
 
 const About = () => {
+  const {miaWhite} = useContext(ColorThemeContext);
   const {isLoading, error, data} = useQuery("about", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.ABOUT_ME}`
@@ -18,7 +21,7 @@ const About = () => {
       <Center h="400px">
         <Loader
           type="Grid"
-          color="#FFF4F5"
+          color={miaWhite}
           height={50}
           width={50}
         />

@@ -10,8 +10,12 @@ import {ENDPOINT, URL} from "../urls";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import contacts from "../localization/contacts";
+import {useContext} from "react";
+import {ColorThemeContext} from "../App";
 
 const Contacts = () => {
+  const {miaWhite} = useContext(ColorThemeContext);
+
   const {isLoading, error, data} = useQuery("contacts", () =>
     fetch(
       `${URL.RENDER_URL}${ENDPOINT.CONTACTS}`
@@ -24,7 +28,7 @@ const Contacts = () => {
       <Center h="400px">
         <Loader
           type="Grid"
-          color="#FFF4F5"
+          color={miaWhite}
           height={50}
           width={50}
         />
