@@ -8,6 +8,7 @@ import common from "../localization/common";
 import mapIndexed from "../utils/mapIndexed";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
+import {reverse} from "ramda";
 
 const Gallery = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -46,7 +47,7 @@ const Gallery = () => {
         <Image src={`${URL.RENDER_URL}${image.url}`} w={270}/>
       </Box>
     )
-  }, data.images)
+  }, reverse(data.images))
 
   return (
     <DefaultLayout>
