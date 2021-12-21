@@ -1,4 +1,4 @@
-import DefaultLayout from "../components/Layout";
+import DefaultLayout from "../components/DefaultLayout";
 import {Text} from "@chakra-ui/react";
 
 const Reservation = () => {

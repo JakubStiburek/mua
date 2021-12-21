@@ -1,4 +1,3 @@
-import DefaultLayout from "../components/Layout"
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
 import {Box, Center, Container, Flex, Heading, Text} from "@chakra-ui/react";
@@ -9,6 +8,8 @@ import Service from "../components/Service";
 import mapIndexed from "../utils/mapIndexed";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
+import PageLayout from "../components/PageLayout";
+import DefaultLayout from "../components/DefaultLayout";
 
 const Services = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -44,7 +45,7 @@ const Services = () => {
   const renderProducts = mapIndexed((product, key) => <Service product={product} key={key} />, data)
 
   return (
-    <DefaultLayout>
+    <PageLayout>
       <Container centerContent minH="420px">
         <Heading size="xl" fontWeight={100}>{services.title}</Heading>
         <Box h="20px"/>
@@ -52,7 +53,7 @@ const Services = () => {
           {renderProducts}
         </Flex>
       </Container>
-    </DefaultLayout>
+    </PageLayout>
   )
 };
 

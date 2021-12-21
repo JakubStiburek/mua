@@ -1,4 +1,3 @@
-import DefaultLayout from "../components/Layout";
 import {useParams} from "react-router-dom";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
@@ -8,6 +7,8 @@ import common from "../localization/common";
 import Article from "../components/Article";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
+import PageLayout from "../components/PageLayout";
+import DefaultLayout from "../components/DefaultLayout";
 
 const ArticleSingle = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -40,7 +41,7 @@ const ArticleSingle = () => {
 
   console.log(data)
   return (
-    <DefaultLayout>
+    <PageLayout>
       <Article
         title={data.title}
         topic={data.topic}
@@ -49,7 +50,7 @@ const ArticleSingle = () => {
         coverUrl={data.cover.url}
         media={data.media}
       />
-    </DefaultLayout>
+    </PageLayout>
   )
 };
 

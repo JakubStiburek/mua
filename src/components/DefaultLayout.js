@@ -22,8 +22,6 @@ export const FooterWrapper = styled.div`
 export const BodyWrapper = styled.div`
   display: grid;
   place-items: center;
-  padding-top: 20px;
-  padding-bottom: 16px;
   background-color: ${({theme}) => theme.miaRed};
   grid-area: 3 / 1 / 3 / 4;
 `

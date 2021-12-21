@@ -1,4 +1,3 @@
-import DefaultLayout from "../components/Layout";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
 import {Box, Center, Container, Heading, Text, VStack} from "@chakra-ui/react";
@@ -12,6 +11,8 @@ import {ColorThemeContext} from "../App";
 import Filter from "../components/Filter";
 import {useSelector} from "react-redux";
 import {filter, indexOf, keys, values} from "ramda";
+import PageLayout from "../components/PageLayout";
+import DefaultLayout from "../components/DefaultLayout";
 
 const Articles = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -58,7 +59,7 @@ const Articles = () => {
     <ArticleItem title={item.title} id={item.id} createdAt={item.created_at} topic={item.topic} key={key}/>, filterByTopic(data, selectedTopic))
 
   return (
-    <DefaultLayout>
+    <PageLayout>
       <Container centerContent minH="420px">
         <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
         <Box h="10px"/>
@@ -68,7 +69,7 @@ const Articles = () => {
           {renderArticleItems}
         </VStack>
       </Container>
-    </DefaultLayout>
+    </PageLayout>
   )
 };
 
