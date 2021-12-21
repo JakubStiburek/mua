@@ -1,4 +1,4 @@
-import DefaultLayout from "../components/Layout";
+import DefaultLayout from "../components/DefaultLayout";
 import {useQuery} from "react-query";
 import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
 import {URL, ENDPOINT} from "../urls";
@@ -7,6 +7,7 @@ import common from "../localization/common";
 import ReactMarkdown from "react-markdown";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
+import PageLayout from "../components/PageLayout";
 
 const About = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -40,7 +41,7 @@ const About = () => {
   console.log(data.content)
 
   return (
-    <DefaultLayout>
+    <PageLayout>
       <Heading size="xl" fontWeight={100}>
         {data.title}
       </Heading>
@@ -50,7 +51,7 @@ const About = () => {
       <Center w="260px" fontSize="sm" align="justify">
         <ReactMarkdown children={data.content} />
       </Center>
-    </DefaultLayout>
+    </PageLayout>
   )
 };
 

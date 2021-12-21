@@ -1,4 +1,3 @@
-import DefaultLayout from "../components/Layout";
 import {Box, Center, Flex, Heading, Text} from "@chakra-ui/react";
 import ContactItem from "../components/ContactItem";
 import FacebookIcon from "../components/FacebookIcon";
@@ -12,6 +11,8 @@ import common from "../localization/common";
 import contacts from "../localization/contacts";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
+import PageLayout from "../components/PageLayout";
+import DefaultLayout from "../components/DefaultLayout";
 
 const Contacts = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -45,7 +46,7 @@ const Contacts = () => {
   )
 
   return (
-    <DefaultLayout>
+    <PageLayout>
       <Heading size="xl" fontWeight={100}>{contacts.title}</Heading>
         <Flex direction="column">
           <Text align="center">Solomija Stibůrková</Text>
@@ -69,7 +70,7 @@ const Contacts = () => {
           </Flex>
           <Box h="80px"/>
         </Flex>
-    </DefaultLayout>
+    </PageLayout>
   )
 };
 

@@ -1,29 +1,10 @@
-import styled from "styled-components";
-import {StyledHeading} from "./StyledHeading";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import banner from "../localization/banner";
-
-const Rect = styled.div`
-  background: ${({ theme }) => theme.miaRed};
-  width: 100%;
-  height: 100%;
-`
-const BannerText = styled(StyledHeading)`
-  position: relative;
-  top: 1em;
-  font-size: 36px;
-  line-height: 18.23px;
-  letter-spacing: 2px;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  margin: auto;
-`
-
-const Highlighted = styled(BannerText)`
-  color: ${({ theme }) => theme.miaYellow};
-`
+import {Grid, GridItem, Text} from "@chakra-ui/react";
+import {ColorThemeContext} from "../App";
 
 const Banner = () => {
+  const {miaYellow} = useContext(ColorThemeContext);
   const [version, setVersion] = useState(0);
   const { makeUp, items } = banner;
 
@@ -35,12 +16,12 @@ const Banner = () => {
   }, [version, items.length]);
 
   return (
-    <Rect>
-      <div>
-        <BannerText>{ makeUp }</BannerText>
-        <Highlighted>{items[version]} &nbsp;</Highlighted>
-      </div>
-    </Rect>
+    <Grid templateColumns="1fr 1fr" gap={2}>
+      <GridItem justifySelf="end">
+        <Text fontSize="3xl" color={miaYellow}>{items[version]}</Text>
+      </GridItem>
+      <Text fontSize="3xl">{ makeUp }</Text>
+    </Grid>
   )
 };
 

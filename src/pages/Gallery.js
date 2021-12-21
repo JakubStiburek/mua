@@ -1,4 +1,3 @@
-import DefaultLayout from "../components/Layout";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
 import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
@@ -9,6 +8,8 @@ import mapIndexed from "../utils/mapIndexed";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
 import {reverse} from "ramda";
+import PageLayout from "../components/PageLayout";
+import DefaultLayout from "../components/DefaultLayout";
 
 const Gallery = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -50,10 +51,10 @@ const Gallery = () => {
   }, reverse(data.images))
 
   return (
-    <DefaultLayout>
+    <PageLayout>
       <Heading size="xl" fontWeight={100}>{gallery.title}</Heading>
       {renderedImages}
-    </DefaultLayout>
+    </PageLayout>
   )
 };
 
