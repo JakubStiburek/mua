@@ -39,7 +39,6 @@ const ArticleSingle = () => {
     </DefaultLayout>
   )
 
-  console.log(data)
   return (
     <PageLayout>
       <Article

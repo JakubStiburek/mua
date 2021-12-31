@@ -8,7 +8,7 @@ const Article = ({title, topic, content, createdAt, coverUrl, media}) => {
   const images = mapIndexed((item, key) => {
     return (
       <Box padding="5px" key={key}>
-        <Image src={`${URL.RENDER_URL}${item.url}`} w={270} key={key}/>
+        <Image src={`${URL.RENDER_URL}${item.url}`} w={[265, 340, 595, 765]} key={key}/>
       </Box>
     )
   }, media)
@@ -17,17 +17,17 @@ const Article = ({title, topic, content, createdAt, coverUrl, media}) => {
     <Container maxW="md" centerContent>
       <Heading size="xl" fontWeight={100}>{title}</Heading>
       <Box h="10px"/>
-      <Image src={`${URL.RENDER_URL}${coverUrl}`} w={270}/>
+      <Image src={`${URL.RENDER_URL}${coverUrl}`} w={[265, 340, 595, 765]}/>
       <Box h="10px"/>
-      <Box w={270}>
-        <Box fontSize="xs" align="justify"><ReactMarkdown children={content}/></Box>
+      <Box w={[265, 340, 595, 765]}>
+        <Box fontSize="xs" align="justify"><ReactMarkdown className="markdown" children={content}/></Box>
         <Box h="10px"/>
         <HStack justify="center">
           <Badge colorScheme="green">
-            <Text fontSize="xs">{formatDate(createdAt)}</Text>
+            <Text fontSize={["xs", "xs", "md", "xl"]}>{formatDate(createdAt)}</Text>
           </Badge>
           <Badge colorScheme="red">
-            <Text fontSize="xs">{`#${topic}`}</Text>
+            <Text fontSize={["xs", "xs", "md", "xl"]}>{`#${topic}`}</Text>
           </Badge>
         </HStack>
         <Box h="10px"/>

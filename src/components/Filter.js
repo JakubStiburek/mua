@@ -15,15 +15,15 @@ const Filter = () => {
   const selected = useSelector((state) => state.filter.selected)
 
   return (
-    <Flex justify="space-evenly" w={220} h="60px" wrap="wrap">
+    <Flex justify="space-evenly" w={[330, 330, 600]} h={["100px", "100px", "60px"]} wrap="wrap">
       {selected === "all" ?
-        <Button key={-1} onClick={() => handleClick('all')} colorScheme="blue" size="xs" isActive>{articles.allArticles}</Button> :
-        <Button key={-1} onClick={() => handleClick('all')} colorScheme="blue" size="xs">{articles.allArticles}</Button>
+        <Button key={-1} onClick={() => handleClick('all')} colorScheme="blue" size="md" isActive>{articles.allArticles}</Button> :
+        <Button key={-1} onClick={() => handleClick('all')} colorScheme="blue" size="md">{articles.allArticles}</Button>
       }
       {mapIndexed((topic, key) => {
         return selected === topic ?
-          <Button key={key} onClick={() => handleClick(topic)} colorScheme="blue" size="xs" isActive>{topic}</Button> :
-          <Button key={key} onClick={() => handleClick(topic)} colorScheme="blue" size="xs">{topic}</Button>
+          <Button key={key} onClick={() => handleClick(topic)} colorScheme="blue" size="md" isActive>{topic}</Button> :
+          <Button key={key} onClick={() => handleClick(topic)} colorScheme="blue" size="md">{topic}</Button>
       }, values(articles.topics))}
     </Flex>
   )

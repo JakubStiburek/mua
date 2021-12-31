@@ -9,6 +9,7 @@ import PhoneIcon from "./PhoneIcon";
 import ContactItem from "./ContactItem";
 import {useQuery} from "react-query";
 import {ENDPOINT, URL} from "../urls";
+import {useMediaQuery} from "@mui/material";
 
 const Rect = styled.div`
   margin-bottom: 31.516px;
@@ -16,6 +17,15 @@ const Rect = styled.div`
   height: 100px;
   width: 312px;
   border-radius: 0 0 25px 25px;
+  @media (min-width: 481px) {
+    width: 400px;
+  }
+  @media (min-width: 768px) {
+    width: 700px;
+  }
+  @media (min-width: 1024px) {
+    width: 900px;
+  }
 `
 
 const InnerFooter = ({facebook, instagram, email, phone}) => {
@@ -25,19 +35,21 @@ const InnerFooter = ({facebook, instagram, email, phone}) => {
     window.scrollTo({top: 0, behavior: "smooth"})
   }
 
+  const iconSize = useMediaQuery('(min-width: 768px)') ? [26, 30] : [16, 20]
+
   return (
     <Rect>
       <Flex direction="column" align="center" justify="space-evenly" h="95px">
         <Pointer>
-          <Text onClick={handleClick} as="u">{backToTop}</Text>
+          <Text fontSize={["xs", "xs", "md", "xl"]} onClick={handleClick} as="u">{backToTop}</Text>
         </Pointer>
-        <Flex direction="row" align="center" justify="space-between" w="100px">
-          <ContactItem href={facebook} icon={<FacebookIcon/>}/>
-          <ContactItem href={instagram} icon={<InstagramIcon/>}/>
-          <ContactItem href={email} icon={<EmailIcon/>}/>
-          <ContactItem href={phone} icon={<PhoneIcon/>}/>
+        <Flex direction="row" align="center" justify="space-between" w={["100px", "100px", "150px"]}>
+          <ContactItem href={facebook} icon={<FacebookIcon width={iconSize[0]} height={iconSize[1]}/>}/>
+          <ContactItem href={instagram} icon={<InstagramIcon width={iconSize[0]} height={iconSize[1]}/>}/>
+          <ContactItem href={email} icon={<EmailIcon width={iconSize[0]} height={iconSize[1]}/>}/>
+          <ContactItem href={phone} icon={<PhoneIcon width={iconSize[0]} height={iconSize[1]}/>}/>
         </Flex>
-        <Text fontSize="xs">{createdBy}</Text>
+        <Text fontSize={["xs", "xs", "md", "xl"]}>{createdBy}</Text>
       </Flex>
     </Rect>
   )
