@@ -8,13 +8,13 @@ const ArticleItem = ({title, id, createdAt, topic}) => {
   return (
     <Link to={link}>
       <Flex direction="column">
-        <Heading size="sm">
+        <Heading size="md">
           {title}
         </Heading>
         <Flex justify="flex-start">
-          <Text fontSize="xs">{formatDate(createdAt)}</Text>
+          <Text fontSize={["xs", "md", "xl"]}>{formatDate(createdAt)}</Text>
           <Box w="5px"/>
-          <Text fontSize="xs">{"#" + articles.topics[topic]}</Text>
+          <Text fontSize={["xs", "md", "xl"]}>{"#" + articles.topics[topic]}</Text>
         </Flex>
       </Flex>
     </Link>

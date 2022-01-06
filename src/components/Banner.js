@@ -18,9 +18,9 @@ const Banner = () => {
   return (
     <Grid templateColumns="1fr 1fr" gap={2}>
       <GridItem justifySelf="end">
-        <Text fontSize="3xl" color={miaYellow}>{items[version]}</Text>
+        <Text fontSize={["3xl", "3xl", "5xl"]} color={miaYellow}>{items[version]}</Text>
       </GridItem>
-      <Text fontSize="3xl">{ makeUp }</Text>
+      <Text fontSize={["3xl", "3xl", "5xl"]}>{ makeUp }</Text>
     </Grid>
   )
 };

@@ -38,8 +38,6 @@ const About = () => {
     </DefaultLayout>
   )
 
-  console.log(data.content)
-
   return (
     <PageLayout>
       <Heading size="xl" fontWeight={100}>
@@ -48,8 +46,8 @@ const About = () => {
       <Box h="10px"/>
       <Image src={`${URL.RENDER_URL}${data.portrait.url}`} w={data.portrait.width} borderRadius="50px"/>
       <Box h="20px"/>
-      <Center w="260px" fontSize="sm" align="justify">
-        <ReactMarkdown children={data.content} />
+      <Center w="85%" fontSize="sm" align="justify">
+        <ReactMarkdown className="markdown" children={data.content} />
       </Center>
     </PageLayout>
   )

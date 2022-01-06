@@ -9,6 +9,15 @@ export const Layout = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 105px auto 1fr;
   gap: 5px;
+  @media (min-width: 481px) {
+    width: 400px;
+  }
+  @media (min-width: 768px) {
+    width: 700px;
+  }
+  @media (min-width: 1024px) {
+    width: 900px;
+  }
 `
 
 export const HeaderWrapper = styled.div`

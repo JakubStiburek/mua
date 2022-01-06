@@ -12,7 +12,7 @@ const AnimatedMenuList = styled(animated.ul)`
   position: absolute;
   list-style: none;
   width: 312px;
-  height: 420px;
+  height: 367px;
   padding: unset;
   margin: unset;
   top: 246px;
@@ -20,6 +20,17 @@ const AnimatedMenuList = styled(animated.ul)`
   flex-direction: column;
   justify-content: space-around;
   border-top: 5px solid ${({theme}) => theme.miaWhite};
+  @media (min-width: 481px) {
+    width: 400px;
+    top: 261px;
+    height: 454px;
+  }
+  @media (min-width: 768px) {
+    width: 700px;
+  }
+  @media (min-width: 1024px) {
+    width: 900px;
+  }
 `
 
 const MenuStyledLink = styled(Link)`
@@ -29,6 +40,9 @@ const MenuStyledLink = styled(Link)`
   line-height: 32px;
   &:hover {
     color: ${({theme}) => theme.miaYellow};
+  }
+  @media (min-width: 1024px) {
+    font-size: 30px;
   }
 `
 //TODO přidat , "/rezervace"

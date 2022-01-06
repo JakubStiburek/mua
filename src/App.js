@@ -5,6 +5,7 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import {ChakraProvider, extendTheme} from "@chakra-ui/react";
 import {colorTheme} from "./colorTheme";
 import React from "react"
+import "./css/markdown.css";
 
 const queryClient = new QueryClient();
 const theme = extendTheme({

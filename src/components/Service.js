@@ -10,7 +10,7 @@ const Service = ({product}) => {
           <Text fontSize="sm">{`${product.price} až ${product.priceMax} Kč`}</Text> :
           product.price && <Text fontSize="sm">{`${product.price} Kč`}</Text>}
       </Flex>
-      <ReactMarkdown>{product.description}</ReactMarkdown>
+      <ReactMarkdown className="markdown">{product.description}</ReactMarkdown>
       <Box h={10}/>
     </Box>
   )

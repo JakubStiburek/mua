@@ -1,0 +1,11 @@
+@media (min-width: 481px) {
+  .markdown p {
+    font-size: 1.5em;
+  }
+}
+
+@media (min-width: 768px) {
+  .markdown p {
+    font-size: 2em;
+  }
+}
