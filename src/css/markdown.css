@@ -9,3 +9,7 @@
     font-size: 2em;
   }
 }
+
+.article p {
+  padding-bottom: 1em;
+}
