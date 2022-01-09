@@ -57,15 +57,17 @@ const Articles = () => {
 
   return (
     <PageLayout>
-      <Container centerContent minH="420px">
-        <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
-        <Box h="10px"/>
-        <Filter/>
-        <Box h="10px"/>
-        <VStack direction="column" align="flex-start" minH="200px" minW="220">
+      <Box minH="420px">
+        <Container centerContent>
+          <Heading size="xl" fontWeight={100}>{articles.title}</Heading>
+          <Box h="10px"/>
+          <Filter/>
+          <Box h="10px"/>
+        </Container>
+        <VStack direction="column" align="flex-start">
           {renderArticleItems}
         </VStack>
-      </Container>
+      </Box>
     </PageLayout>
   )
 };
