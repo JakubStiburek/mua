@@ -1,5 +1,5 @@
 import {useQuery} from "react-query";
-import {ENDPOINT, URL} from "../urls";
+import {ENDPOINTS} from "../constants/urls";
 import {Box, Center, Container, Heading, Text, VStack} from "@chakra-ui/react";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
@@ -13,6 +13,7 @@ import {useSelector} from "react-redux";
 import {filter, indexOf, keys, values} from "ramda";
 import PageLayout from "../components/PageLayout";
 import DefaultLayout from "../components/DefaultLayout";
+import fetchPageData from "../utils/fetchPageData";
 
 const Articles = () => {
   const {miaWhite} = useContext(ColorThemeContext);
@@ -27,11 +28,7 @@ const Articles = () => {
     return selectedTopic === "all" ? data : filter((item) => item.topic === translateTopic(articles.topics, selectedTopic), data)
   }
 
-  const {isLoading, error, data} = useQuery("services", () =>
-    fetch(
-      `${URL.RENDER_URL}${ENDPOINT.ARTICLES}`
-    ).then((res) => res.json())
-  );
+  const {isLoading, error, data} = useQuery("services", () => fetchPageData(ENDPOINTS.ARTICLES));
 
   if (isLoading) return (
     <DefaultLayout>

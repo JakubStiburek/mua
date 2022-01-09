@@ -3,7 +3,7 @@ export const URL = {
   RENDER_URL: 'https://strapi-1l0g.onrender.com',
 }
 
-export const ENDPOINT = {
+export const ENDPOINTS = {
   ABOUT_ME: "/aboutme",
   GALLERY: "/gallery",
   ARTICLE: "/articles/",

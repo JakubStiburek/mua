@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import {StyledHeading} from "./StyledHeading";
 
 const Rect = styled.div`
   margin-top: 31.516px;
-  background: ${({ theme }) => theme.miaRed};
+  background: ${({theme}) => theme.miaRed};
   width: 312px;
   border-radius: 25px 25px 0 0;
   @media (min-width: 481px) {
@@ -16,9 +15,14 @@ const Rect = styled.div`
     width: 900px;
   }
 `
-const Title = styled(StyledHeading)`
+const Title = styled.h1`
+  color: ${({ theme }) => theme.miaWhite};
+  font-family: 'Archivo', sans-serif;
+  font-weight: 100;
   font-size: 48px;
   line-height: 52.22px;
+  text-align: center;
+  margin: 0;
   @media (min-width: 481px) {
     line-height: 60px;
   }
@@ -27,13 +31,11 @@ const Title = styled(StyledHeading)`
   }
 `
 
-const Logo = (props) => {
-  return (
-    <Rect>
-      <Title>{props.children}</Title>
-    </Rect>
-  )
-};
+const Logo = (props) => (
+  <Rect>
+    <Title>{props.children}</Title>
+  </Rect>
+)
 
 export default Logo;
 

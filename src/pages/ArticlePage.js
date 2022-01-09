@@ -1,6 +1,6 @@
 import {useParams} from "react-router-dom";
 import {useQuery} from "react-query";
-import {ENDPOINT, URL} from "../urls";
+import {ENDPOINTS} from "../constants/urls";
 import {Center, Text} from "@chakra-ui/react";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
@@ -9,14 +9,12 @@ import {useContext} from "react";
 import {ColorThemeContext} from "../App";
 import PageLayout from "../components/PageLayout";
 import DefaultLayout from "../components/DefaultLayout";
+import fetchArticle from "../utils/fetchArticle";
 
-const ArticleSingle = () => {
+const ArticlePage = () => {
   const {miaWhite} = useContext(ColorThemeContext);
   const {id} = useParams()
-  const {isLoading, error, data} = useQuery(["article", id], () => fetch(
-      `${URL.RENDER_URL}${ENDPOINT.ARTICLE}${id}`
-    ).then((res) => res.json())
-  )
+  const {isLoading, error, data} = useQuery(["article", id], () => fetchArticle(ENDPOINTS.ARTICLE, id))
 
   if (isLoading) return (
     <DefaultLayout>
@@ -53,4 +51,4 @@ const ArticleSingle = () => {
   )
 };
 
-export default ArticleSingle;
+export default ArticlePage;

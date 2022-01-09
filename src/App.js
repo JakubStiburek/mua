@@ -3,9 +3,9 @@ import store from "./store";
 import {Provider} from "react-redux";
 import {QueryClient, QueryClientProvider} from "react-query";
 import {ChakraProvider, extendTheme} from "@chakra-ui/react";
-import {colorTheme} from "./colorTheme";
+import {colorTheme} from "./constants/colorTheme";
 import React from "react"
-import "./css/markdown.css";
+import "./css/global.css";
 
 const queryClient = new QueryClient();
 const theme = extendTheme({
