@@ -5,6 +5,7 @@ import articles from "../localization/articles";
 
 const ArticleItem = ({title, id, createdAt, topic}) => {
   const link = `/clanek/${id}`
+
   return (
     <Link to={link}>
       <Flex direction="column">

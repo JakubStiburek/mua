@@ -1,28 +1,24 @@
 import {ThemeProvider} from "styled-components";
-import {colorTheme} from "./colorTheme";
+import {colorTheme} from "./constants/colorTheme";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Contacts from "./pages/Contacts";
 import Gallery from "./pages/Gallery";
-import Reservation from "./pages/Reservation";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Articles from "./pages/Articles";
-import ArticleSingle from "./pages/ArticleSingle";
+import ArticlePage from "./pages/ArticlePage";
 
 const RoutedApp = () => {
   return (
     <Router>
       <ThemeProvider theme={colorTheme}>
         <Switch>
-          <Route path="/kontakt">
+          <Route path="/kontakty">
             <Contacts/>
           </Route>
           <Route path="/galerie">
             <Gallery/>
-          </Route>
-          <Route path="/rezervace">
-            <Reservation/>
           </Route>
           <Route path="/sluzby">
             <Services/>
@@ -34,7 +30,7 @@ const RoutedApp = () => {
             <Articles/>
           </Route>
           <Route path="/clanek/:id">
-            <ArticleSingle/>
+            <ArticlePage/>
           </Route>
           <Route path="/">
             <Home/>

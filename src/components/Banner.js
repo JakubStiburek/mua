@@ -9,9 +9,7 @@ const Banner = () => {
   const { makeUp, items } = banner;
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setVersion(version === items.length - 1 ? 0 : version + 1);
-    }, 1500);
+    const interval = setInterval(() => setVersion(version === items.length - 1 ? 0 : version + 1), 1500);
     return () => clearInterval(interval);
   }, [version, items.length]);
 

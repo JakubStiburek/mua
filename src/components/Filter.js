@@ -8,14 +8,12 @@ import {useMediaQuery} from "@mui/material";
 
 const Filter = () => {
   const dispatch = useDispatch()
-
   const buttonSize = useMediaQuery('(min-width: 481px)') ? "md" : "xs";
+  const selected = useSelector((state) => state.filter.selected)
 
   const handleClick = (topic) => {
     dispatch(setSelected(topic))
   }
-
-  const selected = useSelector((state) => state.filter.selected)
 
   return (
     <Flex justify="space-evenly" w={[220, 330, 600]} h={["60px", "100px", "60px"]} wrap="wrap">

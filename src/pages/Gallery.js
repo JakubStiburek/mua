@@ -1,5 +1,5 @@
 import {useQuery} from "react-query";
-import {ENDPOINT, URL} from "../urls";
+import {ENDPOINTS, URL} from "../constants/urls";
 import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
 import gallery from "../localization/gallery";
 import Loader from "react-loader-spinner";
@@ -10,15 +10,12 @@ import {ColorThemeContext} from "../App";
 import {reverse} from "ramda";
 import PageLayout from "../components/PageLayout";
 import DefaultLayout from "../components/DefaultLayout";
+import fetchPageData from "../utils/fetchPageData";
 
 const Gallery = () => {
   const {miaWhite} = useContext(ColorThemeContext);
 
-  const {isLoading, error, data} = useQuery("gallery", () =>
-    fetch(
-      `${URL.RENDER_URL}${ENDPOINT.GALLERY}`
-    ).then((res) => res.json())
-  );
+  const {isLoading, error, data} = useQuery("gallery", () => fetchPageData(ENDPOINTS.GALLERY));
 
   if (isLoading) return (
     <DefaultLayout>

@@ -34,26 +34,27 @@ const AnimatedMenuList = styled(animated.ul)`
 `
 
 const MenuStyledLink = styled(Link)`
-  color: ${({ theme }) => theme.miaWhite};
+  color: ${({theme}) => theme.miaWhite};
   text-decoration: none;
   font-size: 24px;
   line-height: 32px;
+
   &:hover {
     color: ${({theme}) => theme.miaYellow};
   }
+
   @media (min-width: 1024px) {
     font-size: 30px;
   }
 `
-//TODO přidat , "/rezervace"
 
-const links = ["/about", "/sluzby", "/clanky", "/galerie", "/kontakt", "/"]
+const links = ["/about", "/sluzby", "/clanky", "/galerie", "/kontakty", "/"]
 
-  const listLinks = (links) => {
-    return links.map((link, key) => {
-      return <li key={key}>{link}</li>;
-    })
-  }
+const listLinks = (links) => {
+  return links.map((link, key) => {
+    return <li key={key}>{link}</li>;
+  })
+}
 
 const Menu = () => {
   const location = useLocation().pathname;
@@ -70,7 +71,7 @@ const Menu = () => {
   currentLinks = currentLinks.filter(link => link !== undefined)
 
   currentLinks = currentLinks.map(link => {
-    if(link === "/") {
+    if (link === "/") {
       return <MenuStyledLink to={link} onClick={() => dispatch(closeMenu())}>{menu.home}</MenuStyledLink>
     } else {
       return <MenuStyledLink to={link} onClick={() => dispatch(closeMenu())}>{menu[link.slice(1)]}</MenuStyledLink>
@@ -78,6 +79,7 @@ const Menu = () => {
   })
 
   const animationProps = useSpring({to: {opacity: 1}, from: {opacity: 0}})
+
   return (
     <AnimatedMenuList style={animationProps}>
       {listLinks(currentLinks)}

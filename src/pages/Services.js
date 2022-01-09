@@ -1,5 +1,5 @@
 import {useQuery} from "react-query";
-import {ENDPOINT, URL} from "../urls";
+import {ENDPOINTS} from "../constants/urls";
 import {Box, Center, Container, Flex, Heading, Text} from "@chakra-ui/react";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
@@ -10,15 +10,12 @@ import {useContext} from "react";
 import {ColorThemeContext} from "../App";
 import PageLayout from "../components/PageLayout";
 import DefaultLayout from "../components/DefaultLayout";
+import fetchPageData from "../utils/fetchPageData";
 
 const Services = () => {
   const {miaWhite} = useContext(ColorThemeContext);
 
-  const {isLoading, error, data} = useQuery("services", () =>
-    fetch(
-      `${URL.RENDER_URL}${ENDPOINT.PRODUCTS}`
-    ).then((res) => res.json())
-  );
+  const {isLoading, error, data} = useQuery("services", () => fetchPageData(ENDPOINTS.PRODUCTS));
 
   if (isLoading) return (
     <DefaultLayout>

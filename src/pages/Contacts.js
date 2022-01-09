@@ -5,7 +5,7 @@ import InstagramIcon from "../components/InstagramIcon";
 import EmailIcon from "../components/EmailIcon";
 import PhoneIcon from "../components/PhoneIcon";
 import {useQuery} from "react-query";
-import {ENDPOINT, URL} from "../urls";
+import {ENDPOINTS} from "../constants/urls";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import contacts from "../localization/contacts";
@@ -14,16 +14,13 @@ import {ColorThemeContext} from "../App";
 import PageLayout from "../components/PageLayout";
 import DefaultLayout from "../components/DefaultLayout";
 import {useMediaQuery} from "@mui/material";
+import fetchPageData from "../utils/fetchPageData";
 
 const Contacts = () => {
   const {miaWhite} = useContext(ColorThemeContext);
   const iconSize = useMediaQuery('(min-width: 768px)') ? [26, 30] : [16, 20]
 
-  const {isLoading, error, data} = useQuery("contacts", () =>
-    fetch(
-      `${URL.RENDER_URL}${ENDPOINT.CONTACTS}`
-    ).then((res) => res.json())
-  );
+  const {isLoading, error, data} = useQuery("contacts", () => fetchPageData(ENDPOINTS.CONTACTS));
 
   if (isLoading) return (
     <DefaultLayout>

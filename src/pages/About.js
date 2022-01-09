@@ -1,21 +1,18 @@
 import DefaultLayout from "../components/DefaultLayout";
 import {useQuery} from "react-query";
 import {Box, Center, Heading, Image, Text} from "@chakra-ui/react";
-import {URL, ENDPOINT} from "../urls";
+import {URL, ENDPOINTS} from "../constants/urls";
 import Loader from "react-loader-spinner";
 import common from "../localization/common";
 import ReactMarkdown from "react-markdown";
 import {useContext} from "react";
 import {ColorThemeContext} from "../App";
 import PageLayout from "../components/PageLayout";
+import fetchPageData from "../utils/fetchPageData";
 
 const About = () => {
   const {miaWhite} = useContext(ColorThemeContext);
-  const {isLoading, error, data} = useQuery("about", () =>
-    fetch(
-      `${URL.RENDER_URL}${ENDPOINT.ABOUT_ME}`
-    ).then((res) => res.json())
-  );
+  const {isLoading, error, data} = useQuery("about", () => fetchPageData(ENDPOINTS.ABOUT_ME));
 
   if (isLoading) return (
     <DefaultLayout>

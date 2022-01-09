@@ -35,20 +35,18 @@ export const BodyWrapper = styled.div`
   grid-area: 3 / 1 / 3 / 4;
 `
 
-const DefaultLayout = (props) => {
-  return (
-    <Layout>
-      <HeaderWrapper>
-        <Header />
-      </HeaderWrapper>
-      <BodyWrapper>
-        {props.children}
-      </BodyWrapper>
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
-    </Layout>
-  )
-};
+const DefaultLayout = (props) => (
+  <Layout>
+    <HeaderWrapper>
+      <Header/>
+    </HeaderWrapper>
+    <BodyWrapper>
+      {props.children}
+    </BodyWrapper>
+    <FooterWrapper>
+      <Footer/>
+    </FooterWrapper>
+  </Layout>
+)
 
 export default DefaultLayout;

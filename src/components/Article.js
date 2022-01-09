@@ -1,5 +1,5 @@
 import {Badge, Box, Heading, HStack, Image, Text, VStack} from "@chakra-ui/react";
-import {URL} from "../urls";
+import {URL} from "../constants/urls";
 import ReactMarkdown from "react-markdown";
 import mapIndexed from "../utils/mapIndexed";
 import formatDate from "../utils/formatDate";
