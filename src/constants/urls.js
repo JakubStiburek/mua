@@ -9,7 +9,7 @@ export const ENDPOINTS = {
   ARTICLE: "/articles/",
   ARTICLES: "/articles?_sort=created_at:DESC",
   PRODUCTS: "/products?_sort=priority",
-  CONTACTS: "/contacts",
+  CONTACTS: "/contacts?_sort=id",
   FACEBOOK: "/contacts?id=1",
   INSTAGRAM: "/contacts?id=2",
   EMAIL: "/contacts?id=3",

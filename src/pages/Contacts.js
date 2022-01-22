@@ -44,6 +44,8 @@ const Contacts = () => {
     </DefaultLayout>
   )
 
+  console.log({data})
+
   return (
     <PageLayout>
       <Heading size="xl" fontWeight={100}>{contacts.title}</Heading>
